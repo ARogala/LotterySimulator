@@ -13,10 +13,13 @@ namespace lot
         C2DrumMachine dm = new C2DrumMachine(C2DrumMachine.gameTypes.powerball);
         int bucks = 0;
         int scoreValue = 0;
+        //int startBucks = 0;
 
         public Form1()
         {
             InitializeComponent();
+            backgroundWorker1.WorkerReportsProgress = true;
+            backgroundWorker1.WorkerSupportsCancellation = true;
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -76,59 +79,108 @@ namespace lot
             fldBucks.Text = bucks.ToString();
         }
 
+        //start async operation
         private void btnTryForBig_Click(object sender, EventArgs e)
         {
+            if (backgroundWorker1.IsBusy != true)
+            {
+                // Start the asynchronous operation. -- calls DoWork()
+                backgroundWorker1.RunWorkerAsync();
+            }
+        }
+
+        //cancel async operation
+        private void cancelTryBig_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorker1.WorkerSupportsCancellation == true)
+            {
+                // Cancel the asynchronous operation.
+                backgroundWorker1.CancelAsync();
+            }
+        }
+
+        // This event handler is where the time-consuming work is done.
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+
             int startBucks = 0;
             bool wow = false;
 
             while (!wow)
             {
-                dm.clearGameList();
-                if (!cbCoverDrum2.Checked)
+                if (worker.CancellationPending == true)
                 {
-                    bucks -= dm.getGameCost();
-                    startBucks = bucks;
-                    dm.play();
-                    bucks += dm.score(fldTarget.Text, dm.scGames[0]);
-                    //display win
-                    scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
-                    if (scoreValue > 0)
-                    {
-                        rtbWon.AppendText(dm.scGames[0] + " won " + scoreValue.ToString() + "\n");
-                    }
-                    if ((bucks - startBucks) > 999)
-                    {
-                        //Console.WriteLine("WOW");
-                        rtbWon.AppendText("WOW");
-                        wow = true;
-                    }
+                    e.Cancel = true;
+                    break;
                 }
                 else
                 {
-                    dm.playDrum2();
-                    for (int i = 0; i < dm.scGames.Count; i++)
+                    dm.clearGameList();
+                    if (!cbCoverDrum2.Checked)
                     {
                         bucks -= dm.getGameCost();
                         startBucks = bucks;
-                        bucks += dm.score(fldTarget.Text, dm.scGames[i]);
+                        dm.play();
+                        bucks += dm.score(fldTarget.Text, dm.scGames[0]);
                         //display win
-                        scoreValue = dm.score(fldTarget.Text, dm.scGames[i]);
+                        scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
                         if (scoreValue > 0)
                         {
-                            rtbWon.AppendText(dm.scGames[i] + " won " + scoreValue.ToString() + "\n");
+                            //mark as 1% complete here dont want to stop till big$$$
+                            worker.ReportProgress(1, dm.scGames[0]);
                         }
                         if ((bucks - startBucks) > 999)
                         {
-                            //Console.WriteLine("WOW");
-                            rtbWon.AppendText("WOW");
+                            worker.ReportProgress(100);
                             wow = true;
                         }
                     }
+                    else
+                    {
+                        dm.playDrum2();
+                        for (int i = 0; i < dm.scGames.Count; i++)
+                        {
+                            bucks -= dm.getGameCost();
+                            startBucks = bucks;
+                            bucks += dm.score(fldTarget.Text, dm.scGames[i]);
+                            //display win
+                            scoreValue = dm.score(fldTarget.Text, dm.scGames[i]);
+                            if (scoreValue > 0)
+                            {
+                                //mark as 1% complete here dont want to stop till big$$$
+                                worker.ReportProgress(1, dm.scGames[i]);
+                            }
+                            if ((bucks - startBucks) > 999)
+                            {
+                                worker.ReportProgress(100);
+                                wow = true;
+                            }
+                        }
+                    }
                 }
-                fldBucks.Text = bucks.ToString();
-                fldBucks.Refresh();
             }
         }
 
+        // This event handler updates the progress.
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (e.ProgressPercentage == 1)
+            {
+                rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
+            }
+            else
+            {
+                rtbWon.AppendText("WOW");
+            }
+            fldBucks.Text = bucks.ToString();
+            //fldBucks.Refresh();
+        }
+
+        // This event handler deals with the results of the background operation.
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
     }
 }

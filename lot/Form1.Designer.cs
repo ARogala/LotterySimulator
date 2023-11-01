@@ -44,6 +44,8 @@
             this.ticketsPlayedLbl = new System.Windows.Forms.Label();
             this.ticketsWonLbl = new System.Windows.Forms.Label();
             this.rtbWon = new System.Windows.Forms.RichTextBox();
+            this.cancelTryBig = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.gbGame.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -199,11 +201,29 @@
             this.rtbWon.TabIndex = 14;
             this.rtbWon.Text = "";
             // 
+            // cancelTryBig
+            // 
+            this.cancelTryBig.Location = new System.Drawing.Point(278, 405);
+            this.cancelTryBig.Name = "cancelTryBig";
+            this.cancelTryBig.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cancelTryBig.Size = new System.Drawing.Size(156, 23);
+            this.cancelTryBig.TabIndex = 15;
+            this.cancelTryBig.Text = "Cancel";
+            this.cancelTryBig.UseVisualStyleBackColor = true;
+            this.cancelTryBig.Click += new System.EventHandler(this.cancelTryBig_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 571);
+            this.Controls.Add(this.cancelTryBig);
             this.Controls.Add(this.rtbWon);
             this.Controls.Add(this.ticketsWonLbl);
             this.Controls.Add(this.ticketsPlayedLbl);
@@ -245,6 +265,8 @@
         private System.Windows.Forms.Label ticketsPlayedLbl;
         private System.Windows.Forms.Label ticketsWonLbl;
         private System.Windows.Forms.RichTextBox rtbWon;
+        private System.Windows.Forms.Button cancelTryBig;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

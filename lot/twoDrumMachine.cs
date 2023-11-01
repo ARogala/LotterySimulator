@@ -115,13 +115,13 @@ namespace lot
             switch (drumNo)
             {
                 case 1:
-                    i = r.Next(0, scDrum1.Count - 1);
+                    i = r.Next(0, scDrum1.Count); //remove count - 1
                     s = scDrum1[i];
                     this.scDrum1Picks.Add(s);
                     this.scDrum1.RemoveAt(i);
                     break;
                 case 2:
-                    i = r.Next(0, scDrum2.Count - 1);
+                    i = r.Next(0, scDrum2.Count); //remove count - 1 
                     s = scDrum2[i];
                     this.scDrum2Picks.Add(s);
                     this.scDrum2.RemoveAt(i);
