@@ -12,6 +12,7 @@ namespace lot
     {
         C2DrumMachine dm = new C2DrumMachine(C2DrumMachine.gameTypes.powerball);
         int bucks = 0;
+        int scoreValue = 0;
 
         public Form1()
         {
@@ -26,6 +27,12 @@ namespace lot
                 bucks -= dm.getGameCost();
                 rtbGames.AppendText(dm.play() + "\n");
                 bucks += dm.score(fldTarget.Text, dm.scGames[0]);
+                //display win
+                scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
+                if (scoreValue > 0)
+                {
+                    rtbWon.AppendText(dm.scGames[0] + " won " + scoreValue.ToString());
+                }
             }
             else
             {
@@ -35,6 +42,12 @@ namespace lot
                     bucks -= dm.getGameCost();
                     rtbGames.AppendText(dm.scGames[i] + "\n");
                     bucks += dm.score(fldTarget.Text, dm.scGames[i]);
+                    //display win
+                    scoreValue = dm.score(fldTarget.Text, dm.scGames[i]);
+                    if(scoreValue > 0)
+                    {
+                        rtbWon.AppendText(dm.scGames[i] + " won " + scoreValue.ToString() + "\n");
+                    }
                 }
             }
             fldBucks.Text = bucks.ToString();
@@ -77,9 +90,16 @@ namespace lot
                     startBucks = bucks;
                     dm.play();
                     bucks += dm.score(fldTarget.Text, dm.scGames[0]);
+                    //display win
+                    scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
+                    if (scoreValue > 0)
+                    {
+                        rtbWon.AppendText(dm.scGames[0] + " won " + scoreValue.ToString() + "\n");
+                    }
                     if ((bucks - startBucks) > 999)
                     {
-                        Console.WriteLine("WOW");
+                        //Console.WriteLine("WOW");
+                        rtbWon.AppendText("WOW");
                         wow = true;
                     }
                 }
@@ -91,9 +111,16 @@ namespace lot
                         bucks -= dm.getGameCost();
                         startBucks = bucks;
                         bucks += dm.score(fldTarget.Text, dm.scGames[i]);
+                        //display win
+                        scoreValue = dm.score(fldTarget.Text, dm.scGames[i]);
+                        if (scoreValue > 0)
+                        {
+                            rtbWon.AppendText(dm.scGames[i] + " won " + scoreValue.ToString() + "\n");
+                        }
                         if ((bucks - startBucks) > 999)
                         {
-                            Console.WriteLine("WOW");
+                            //Console.WriteLine("WOW");
+                            rtbWon.AppendText("WOW");
                             wow = true;
                         }
                     }
