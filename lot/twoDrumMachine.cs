@@ -8,27 +8,32 @@ namespace lot
 {
     class C2DrumMachine
     {
+        //scDrum1 and 2 store all the lottery numbers -- represents the lottery balls
         public StringCollection scDrum1 = new StringCollection();
         public StringCollection scDrum2 = new StringCollection();
+        //scDrum1Picks and scDrum2Picks store the randomly selected numbers -- match these to your ticket and win
         public StringCollection scDrum1Picks = new StringCollection();
         public StringCollection scDrum2Picks = new StringCollection();
+        //stores all the randomly selected numbers in both scDrum1Picks and scDrum2Picks -- 19 30 33 48 59 [26]
         public StringCollection scGames = new StringCollection();
         private int d1NMax;
         private int d1NPicks;
         private int d2NMax;
         private int d2NPicks;
+        //If your application requires different random number sequences, invoke this constructor repeatedly with different seed values
+        //add some more randomness to this thing -- great i like it
         private Random r = new Random((int)DateTime.Now.Ticks);
         private gameTypes gameType;
         private int gameCost;
 
         public enum gameTypes { powerball, megamillions, custom };
-
+        //1st constructor -- for use with custom game type
         public C2DrumMachine(int drum1Picks, int drum1NMax, int drum2Picks, int drum2NMax)
         {
             setMachine(drum1Picks, drum1NMax, drum2Picks, drum2NMax);
             this.gameType = gameTypes.custom;
         }
-
+        //2nd constructor
         public C2DrumMachine(gameTypes gameName)
         {
             setGame(gameName);
@@ -43,7 +48,8 @@ namespace lot
         {
             return (gameCost);
         }
-
+        //why -1 on number of picks? ok see the loop in play()
+        //set vars based on game type 
         public void setMachine(int drum1Picks, int drum1NMax, int drum2Picks, int drum2NMax)
         {
             this.d1NMax = drum1NMax;
@@ -85,7 +91,8 @@ namespace lot
                 scDrum1.Add(frmt(i));
         }
 
-
+        //clear the old string collectios scDrum1, scDrum2, scDrum1Picks, and scDrum2Picks 
+        //and add the drum numbers (lottery balls) to string collections scDrum1, scDrum2
         public void newGame()
         {
             int i;
@@ -96,7 +103,10 @@ namespace lot
                 scDrum2.Add(frmt(i));
             initDrum1();
         }
-
+        //function that returns random number as string -- getRandomNumber
+        //select a random range from the scDrum array
+        //add random number from lottery balls to scDrum1/2Picks
+        //remove that number from the drum/lottery balls so it cannot be selected again
         private string getN(int drumNo)
         {
             int i;
@@ -120,6 +130,7 @@ namespace lot
             return (s);
         }
 
+        //does the same as play() except plays each number in drum 2
         public void playDrum2()
         {
             StringBuilder sb = new StringBuilder();
@@ -128,7 +139,7 @@ namespace lot
 
             switch (this.gameType)
             {
-                case gameTypes.megamillions: nTickets = 46; break;
+                case gameTypes.megamillions: nTickets = 25; break; //shouldnt this be 25? was 46
                 case gameTypes.powerball: nTickets = 26; break;
             }
             scGames.Clear();
@@ -154,8 +165,12 @@ namespace lot
             }
         }
 
+        //picks your lucky random numbers adds them to scDrumPicks -- sorts scDrumPicks
+        //retruns a string of lucky random numbers
+        //adds all lucky nums to scGames
         public string play()
         {
+            //cool oddly i dont remember ever using this class before -- better than concatenation
             StringBuilder sb = new StringBuilder();
 
             newGame();
@@ -183,14 +198,20 @@ namespace lot
             return (sb.ToString());
         }
 
+        //target is the numbers on your ticket game is scGames[0] which are the random picked numbers to match
+        //foreach num in game check for a matching num on ticket
+        //if matched number is not 2nd drum (powerball) add 1
+        //if matched numer is the powerball add 10
+        //return the sum
         public int getMatched(string target, string game)
         {
             int matched = 0;
             string[] arTarget;
             string[] arGame;
             char[] charSeparators = new char[] { ' ' };
-
+            //your ticket numbers --- not sure if StringSplitOptions.RemoveEmptyEntries was/is needed dont think it will ever have Empty. added for safety i assume?
             arTarget = target.Split(charSeparators, StringSplitOptions.RemoveEmptyEntries);
+            //random nums from drum
             arGame = game.Split(charSeparators, StringSplitOptions.RemoveEmptyEntries);
             foreach (string ball in arGame)
                 if (ArrayList.Adapter(arTarget).Contains(ball))
@@ -203,23 +224,26 @@ namespace lot
             return (matched);
         }
 
+        //returns the $$$ won on each ticket
         public int score(string target, string game)
         {
             int value = 0;
 
             switch (this.gameType)
             {
+                //power ball rule change for 4 and 3 and 10
+                //mega is still correct
                 case gameTypes.powerball:
                     switch (getMatched(target, game))
                     {
-                        case 10:
+                        case 10: value = 4; break;
                         case 11: value = 4; break;
-                        case 3:
+                        case 3:  value = 7; break;
                         case 12: value = 7; break;
-                        case 4:
+                        case 4:  value = 100; break;
                         case 13: value = 100; break;
                         case 14: value = 50000; break;
-                        case 5: value = 1000000; break;
+                        case 5:  value = 1000000; break;
                         case 15: value = 150000000; break; //actually jackpot
                     }
                     break;
@@ -228,16 +252,17 @@ namespace lot
                     {
                         case 10: value = 2; break;
                         case 11: value = 4; break;
-                        case 3: value = 10; break;
+                        case 3:  value = 10; break;
                         case 12: value = 10; break;
                         case 13: value = 200; break;
-                        case 4: value = 500; break;
+                        case 4:  value = 500; break;
                         case 14: value = 10000; break;
-                        case 5: value = 1000000; break;
+                        case 5:  value = 1000000; break;
                         case 15: value = 150000000; break; //actually jackpot
                     }
                     break;
             }
+            //make this outupt to UI
             if (value > 0)
                 Console.WriteLine(game + " won " + value.ToString());
             return (value);
