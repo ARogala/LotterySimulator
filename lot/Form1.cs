@@ -48,11 +48,13 @@ namespace lot
         private void rgGameRbMega_CheckedChanged(object sender, EventArgs e)
         {
             dm.setGame(C2DrumMachine.gameTypes.megamillions);
+            fldTarget.Text = "19 30 33 48 59 [25]";
         }
 
         private void rgGameRbPowerBall_CheckedChanged(object sender, EventArgs e)
         {
             dm.setGame(C2DrumMachine.gameTypes.powerball);
+            fldTarget.Text = "19 30 33 48 59 [26]";
         }
 
         private void btnClrBucks_Click(object sender, EventArgs e)
