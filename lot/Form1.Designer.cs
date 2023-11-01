@@ -41,6 +41,9 @@
             this.fldTarget = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnTryForBig = new System.Windows.Forms.Button();
+            this.ticketsPlayedLbl = new System.Windows.Forms.Label();
+            this.ticketsWonLbl = new System.Windows.Forms.Label();
+            this.rtbWon = new System.Windows.Forms.RichTextBox();
             this.gbGame.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,9 +59,9 @@
             // 
             // rtbGames
             // 
-            this.rtbGames.Location = new System.Drawing.Point(22, 22);
+            this.rtbGames.Location = new System.Drawing.Point(22, 65);
             this.rtbGames.Name = "rtbGames";
-            this.rtbGames.Size = new System.Drawing.Size(231, 524);
+            this.rtbGames.Size = new System.Drawing.Size(231, 475);
             this.rtbGames.TabIndex = 1;
             this.rtbGames.Text = "";
             // 
@@ -170,11 +173,40 @@
             this.btnTryForBig.UseVisualStyleBackColor = true;
             this.btnTryForBig.Click += new System.EventHandler(this.btnTryForBig_Click);
             // 
+            // ticketsPlayedLbl
+            // 
+            this.ticketsPlayedLbl.AutoSize = true;
+            this.ticketsPlayedLbl.Location = new System.Drawing.Point(23, 37);
+            this.ticketsPlayedLbl.Name = "ticketsPlayedLbl";
+            this.ticketsPlayedLbl.Size = new System.Drawing.Size(77, 13);
+            this.ticketsPlayedLbl.TabIndex = 12;
+            this.ticketsPlayedLbl.Text = "Tickets Played";
+            // 
+            // ticketsWonLbl
+            // 
+            this.ticketsWonLbl.AutoSize = true;
+            this.ticketsWonLbl.Location = new System.Drawing.Point(470, 37);
+            this.ticketsWonLbl.Name = "ticketsWonLbl";
+            this.ticketsWonLbl.Size = new System.Drawing.Size(68, 13);
+            this.ticketsWonLbl.TabIndex = 13;
+            this.ticketsWonLbl.Text = "Tickets Won";
+            // 
+            // rtbWon
+            // 
+            this.rtbWon.Location = new System.Drawing.Point(473, 65);
+            this.rtbWon.Name = "rtbWon";
+            this.rtbWon.Size = new System.Drawing.Size(229, 475);
+            this.rtbWon.TabIndex = 14;
+            this.rtbWon.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 571);
+            this.ClientSize = new System.Drawing.Size(726, 571);
+            this.Controls.Add(this.rtbWon);
+            this.Controls.Add(this.ticketsWonLbl);
+            this.Controls.Add(this.ticketsPlayedLbl);
             this.Controls.Add(this.btnTryForBig);
             this.Controls.Add(this.fldTarget);
             this.Controls.Add(this.label2);
@@ -210,6 +242,9 @@
         private System.Windows.Forms.TextBox fldTarget;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnTryForBig;
+        private System.Windows.Forms.Label ticketsPlayedLbl;
+        private System.Windows.Forms.Label ticketsWonLbl;
+        private System.Windows.Forms.RichTextBox rtbWon;
     }
 }
 
