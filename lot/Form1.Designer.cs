@@ -46,6 +46,7 @@
             this.rtbWon = new System.Windows.Forms.RichTextBox();
             this.cancelTryBig = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.cancelLbl = new System.Windows.Forms.Label();
             this.gbGame.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -218,11 +219,20 @@
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
+            // cancelLbl
+            // 
+            this.cancelLbl.AutoSize = true;
+            this.cancelLbl.Location = new System.Drawing.Point(283, 441);
+            this.cancelLbl.Name = "cancelLbl";
+            this.cancelLbl.Size = new System.Drawing.Size(0, 13);
+            this.cancelLbl.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 571);
+            this.Controls.Add(this.cancelLbl);
             this.Controls.Add(this.cancelTryBig);
             this.Controls.Add(this.rtbWon);
             this.Controls.Add(this.ticketsWonLbl);
@@ -267,6 +277,7 @@
         private System.Windows.Forms.RichTextBox rtbWon;
         private System.Windows.Forms.Button cancelTryBig;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label cancelLbl;
     }
 }
 

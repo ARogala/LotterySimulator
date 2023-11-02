@@ -59,6 +59,7 @@ namespace lot
         private void btnClrGames_Click(object sender, EventArgs e)
         {
             rtbGames.Text = "";
+            rtbWon.Text = "";
         }
 
         private void rgGameRbMega_CheckedChanged(object sender, EventArgs e)
@@ -180,7 +181,18 @@ namespace lot
         // This event handler deals with the results of the background operation.
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-
+            if (e.Cancelled == true)
+            {
+                cancelLbl.Text = "Canceled!";
+            }
+            else if (e.Error != null)
+            {
+                cancelLbl.Text = "Error: " + e.Error.Message;
+            }
+            else
+            {
+                cancelLbl.Text = "Done!";
+            }
         }
     }
 }
