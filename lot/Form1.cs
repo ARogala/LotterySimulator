@@ -13,8 +13,7 @@ namespace lot
         C2DrumMachine dm = new C2DrumMachine(C2DrumMachine.gameTypes.powerball);
         int bucks = 0;
         int scoreValue = 0;
-        //int startBucks = 0;
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -60,6 +59,7 @@ namespace lot
         {
             rtbGames.Text = "";
             rtbWon.Text = "";
+            cancelLbl.Text = "";
         }
 
         private void rgGameRbMega_CheckedChanged(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace lot
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
-
+       
             int startBucks = 0;
             bool wow = false;
 
@@ -136,6 +136,7 @@ namespace lot
                             worker.ReportProgress(100);
                             wow = true;
                         }
+                      
                     }
                     else
                     {
@@ -166,6 +167,7 @@ namespace lot
         // This event handler updates the progress.
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+           
             if (e.ProgressPercentage == 1)
             {
                 rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
@@ -176,6 +178,7 @@ namespace lot
             }
             fldBucks.Text = bucks.ToString();
             //fldBucks.Refresh();
+          
         }
 
         // This event handler deals with the results of the background operation.

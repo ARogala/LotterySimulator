@@ -249,7 +249,7 @@
             this.Controls.Add(this.rtbGames);
             this.Controls.Add(this.btnPlay);
             this.Name = "Form1";
-            this.Text = "LotSim";
+            this.Text = "Lottery Simulator -- Hopes are Futile";
             this.gbGame.ResumeLayout(false);
             this.gbGame.PerformLayout();
             this.ResumeLayout(false);
