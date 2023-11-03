@@ -230,10 +230,11 @@
             // cancelLbl
             // 
             this.cancelLbl.AutoSize = true;
-            this.cancelLbl.Location = new System.Drawing.Point(283, 441);
+            this.cancelLbl.Location = new System.Drawing.Point(271, 431);
             this.cancelLbl.Name = "cancelLbl";
-            this.cancelLbl.Size = new System.Drawing.Size(0, 13);
+            this.cancelLbl.Size = new System.Drawing.Size(53, 13);
             this.cancelLbl.TabIndex = 16;
+            //this.cancelLbl.Text = "cancelLbl";
             // 
             // moneySpentLbl
             // 
