@@ -134,28 +134,9 @@ namespace lot
                         }
                         else if (scoreValue > 99)
                         {
-                            worker.ReportProgress(100);
+                            worker.ReportProgress(100, dm.scGames[0]);
                             wow = true;
                         }
-
-                        /*
-                        bucks -= dm.getGameCost();
-                        startBucks = bucks;
-                        dm.play();
-                        bucks += dm.score(fldTarget.Text, dm.scGames[0]);
-                        //display win
-                        scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
-                        if (scoreValue > 0)
-                        {
-                            //mark as 1% complete here dont want to stop till big$$$
-                            worker.ReportProgress(1, dm.scGames[0]);
-                        }
-                        if ((bucks - startBucks) > 999)
-                        {
-                            worker.ReportProgress(100);
-                            wow = true;
-                        }
-                        */
                     }
                     else
                     {
@@ -190,10 +171,17 @@ namespace lot
             if (e.ProgressPercentage == 1)
             {
                 rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
+                fldMoneySpent.Text = moneySpent.ToString();
+                fldMoneyWon.Text = moneyWon.ToString();
             }
             else
             {
+                rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
                 rtbWon.AppendText("WOW");
+                fldMoneySpent.Text = moneySpent.ToString();
+                fldMoneyWon.Text = moneyWon.ToString();
+                fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
+                fldGamesPlayed.Text = Math.Abs((moneySpent / dm.getGameCost())).ToString(); 
             }
             fldBucks.Text = bucks.ToString();
             //fldBucks.Refresh();

@@ -41,8 +41,8 @@
             this.fldTarget = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnTryForBig = new System.Windows.Forms.Button();
-            this.ticketsPlayedLbl = new System.Windows.Forms.Label();
-            this.ticketsWonLbl = new System.Windows.Forms.Label();
+            this.gamesPlayedLbl = new System.Windows.Forms.Label();
+            this.gamesWonLbl = new System.Windows.Forms.Label();
             this.rtbWon = new System.Windows.Forms.RichTextBox();
             this.cancelTryBig = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -184,23 +184,23 @@
             this.btnTryForBig.UseVisualStyleBackColor = true;
             this.btnTryForBig.Click += new System.EventHandler(this.btnTryForBig_Click);
             // 
-            // ticketsPlayedLbl
+            // gamesPlayedLbl
             // 
-            this.ticketsPlayedLbl.AutoSize = true;
-            this.ticketsPlayedLbl.Location = new System.Drawing.Point(23, 37);
-            this.ticketsPlayedLbl.Name = "ticketsPlayedLbl";
-            this.ticketsPlayedLbl.Size = new System.Drawing.Size(77, 13);
-            this.ticketsPlayedLbl.TabIndex = 12;
-            this.ticketsPlayedLbl.Text = "Tickets Played";
+            this.gamesPlayedLbl.AutoSize = true;
+            this.gamesPlayedLbl.Location = new System.Drawing.Point(9, 37);
+            this.gamesPlayedLbl.Name = "gamesPlayedLbl";
+            this.gamesPlayedLbl.Size = new System.Drawing.Size(75, 13);
+            this.gamesPlayedLbl.TabIndex = 12;
+            this.gamesPlayedLbl.Text = "Games Played";
             // 
-            // ticketsWonLbl
+            // gamesWonLbl
             // 
-            this.ticketsWonLbl.AutoSize = true;
-            this.ticketsWonLbl.Location = new System.Drawing.Point(470, 37);
-            this.ticketsWonLbl.Name = "ticketsWonLbl";
-            this.ticketsWonLbl.Size = new System.Drawing.Size(68, 13);
-            this.ticketsWonLbl.TabIndex = 13;
-            this.ticketsWonLbl.Text = "Tickets Won";
+            this.gamesWonLbl.AutoSize = true;
+            this.gamesWonLbl.Location = new System.Drawing.Point(470, 37);
+            this.gamesWonLbl.Name = "gamesWonLbl";
+            this.gamesWonLbl.Size = new System.Drawing.Size(66, 13);
+            this.gamesWonLbl.TabIndex = 13;
+            this.gamesWonLbl.Text = "Games Won";
             // 
             // rtbWon
             // 
@@ -270,7 +270,7 @@
             // gamePlayedLbl
             // 
             this.gamePlayedLbl.AutoSize = true;
-            this.gamePlayedLbl.Location = new System.Drawing.Point(271, 532);
+            this.gamePlayedLbl.Location = new System.Drawing.Point(271, 571);
             this.gamePlayedLbl.Name = "gamePlayedLbl";
             this.gamePlayedLbl.Size = new System.Drawing.Size(75, 13);
             this.gamePlayedLbl.TabIndex = 21;
@@ -278,7 +278,7 @@
             // 
             // fldGamesPlayed
             // 
-            this.fldGamesPlayed.Location = new System.Drawing.Point(274, 548);
+            this.fldGamesPlayed.Location = new System.Drawing.Point(274, 587);
             this.fldGamesPlayed.Name = "fldGamesPlayed";
             this.fldGamesPlayed.Size = new System.Drawing.Size(160, 20);
             this.fldGamesPlayed.TabIndex = 22;
@@ -286,7 +286,7 @@
             // netGainLossLbl
             // 
             this.netGainLossLbl.AutoSize = true;
-            this.netGainLossLbl.Location = new System.Drawing.Point(271, 571);
+            this.netGainLossLbl.Location = new System.Drawing.Point(271, 532);
             this.netGainLossLbl.Name = "netGainLossLbl";
             this.netGainLossLbl.Size = new System.Drawing.Size(70, 13);
             this.netGainLossLbl.TabIndex = 23;
@@ -294,7 +294,7 @@
             // 
             // fldNetGainLoss
             // 
-            this.fldNetGainLoss.Location = new System.Drawing.Point(274, 587);
+            this.fldNetGainLoss.Location = new System.Drawing.Point(274, 548);
             this.fldNetGainLoss.Name = "fldNetGainLoss";
             this.fldNetGainLoss.Size = new System.Drawing.Size(160, 20);
             this.fldNetGainLoss.TabIndex = 24;
@@ -315,8 +315,8 @@
             this.Controls.Add(this.cancelLbl);
             this.Controls.Add(this.cancelTryBig);
             this.Controls.Add(this.rtbWon);
-            this.Controls.Add(this.ticketsWonLbl);
-            this.Controls.Add(this.ticketsPlayedLbl);
+            this.Controls.Add(this.gamesWonLbl);
+            this.Controls.Add(this.gamesPlayedLbl);
             this.Controls.Add(this.btnTryForBig);
             this.Controls.Add(this.fldTarget);
             this.Controls.Add(this.label2);
@@ -352,8 +352,8 @@
         private System.Windows.Forms.TextBox fldTarget;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnTryForBig;
-        private System.Windows.Forms.Label ticketsPlayedLbl;
-        private System.Windows.Forms.Label ticketsWonLbl;
+        private System.Windows.Forms.Label gamesPlayedLbl;
+        private System.Windows.Forms.Label gamesWonLbl;
         private System.Windows.Forms.RichTextBox rtbWon;
         private System.Windows.Forms.Button cancelTryBig;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
