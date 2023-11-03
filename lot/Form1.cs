@@ -30,14 +30,20 @@ namespace lot
             dm.clearGameList();
             if (!cbCoverDrum2.Checked)
             {
-                bucks -= dm.getGameCost();
+                moneySpent -= dm.getGameCost();
                 rtbGames.AppendText(dm.play() + "\n");
-                bucks += dm.score(fldTarget.Text, dm.scGames[0]);
+                moneyWon += dm.score(fldTarget.Text, dm.scGames[0]);
+                fldMoneySpent.Text = moneySpent.ToString();
+                fldMoneyWon.Text = moneyWon.ToString();
+                fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
                 //display win
                 scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
                 if (scoreValue > 0)
                 {
-                    rtbWon.AppendText(dm.scGames[0] + " won " + scoreValue.ToString());
+                    rtbWon.AppendText(dm.scGames[0] + " won " + scoreValue.ToString() + "\n");
+                    fldMoneySpent.Text = moneySpent.ToString();
+                    fldMoneyWon.Text = moneyWon.ToString();
+                    fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
                 }
             }
             else
@@ -45,18 +51,23 @@ namespace lot
                 dm.playDrum2();
                 for (int i = 0; i < dm.scGames.Count; i++)
                 {
-                    bucks -= dm.getGameCost();
+                    moneySpent -= dm.getGameCost();
                     rtbGames.AppendText(dm.scGames[i] + "\n");
-                    bucks += dm.score(fldTarget.Text, dm.scGames[i]);
+                    moneyWon += dm.score(fldTarget.Text, dm.scGames[i]);
+                    fldMoneySpent.Text = moneySpent.ToString();
+                    fldMoneyWon.Text = moneyWon.ToString();
+                    fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
                     //display win
                     scoreValue = dm.score(fldTarget.Text, dm.scGames[i]);
-                    if(scoreValue > 0)
+                    if (scoreValue > 0)
                     {
                         rtbWon.AppendText(dm.scGames[i] + " won " + scoreValue.ToString() + "\n");
+                        fldMoneySpent.Text = moneySpent.ToString();
+                        fldMoneyWon.Text = moneyWon.ToString();
+                        fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
                     }
                 }
             }
-            fldBucks.Text = bucks.ToString();
         }
 
         private void btnClrGames_Click(object sender, EventArgs e)
