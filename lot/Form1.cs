@@ -15,6 +15,8 @@ namespace lot
         int scoreValue = 0;
         int moneySpent = 0;
         int moneyWon = 0;
+        int gamesWon = 0;
+        StringBuilder sbgamesPlayed = new StringBuilder();
 
         public Form1()
         {
@@ -129,17 +131,19 @@ namespace lot
                     if (!cbCoverDrum2.Checked)
                     {
                         moneySpent -= dm.getGameCost();
-                        dm.play();
+                        sbgamesPlayed.Append(dm.play() + "\n");
                         moneyWon += dm.score(fldTarget.Text, dm.scGames[0]);
                         scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
                         if (scoreValue > 0 && scoreValue < 100)
                         {
                             //mark as 1% complete here dont want to stop till big$$$
+                            gamesWon++;
                             worker.ReportProgress(1, dm.scGames[0]);
                           
                         }
                         else if (scoreValue > 99)
                         {
+                            gamesWon++;
                             worker.ReportProgress(100, dm.scGames[0]);
                             wow = true;
                         }
@@ -179,15 +183,18 @@ namespace lot
                 rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
                 fldMoneySpent.Text = moneySpent.ToString();
                 fldMoneyWon.Text = moneyWon.ToString();
+                fldGamesWon.Text = gamesWon.ToString();
             }
             else
             {
+                rtbGames.AppendText(sbgamesPlayed.ToString());
                 rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
                 rtbWon.AppendText("WOW");
                 fldMoneySpent.Text = moneySpent.ToString();
                 fldMoneyWon.Text = moneyWon.ToString();
                 fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
                 fldGamesPlayed.Text = Math.Abs((moneySpent / dm.getGameCost())).ToString(); 
+                fldGamesWon.Text = gamesWon.ToString();
             }
             fldBucks.Text = bucks.ToString();
             //fldBucks.Refresh();
