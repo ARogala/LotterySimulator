@@ -47,6 +47,14 @@
             this.cancelTryBig = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.cancelLbl = new System.Windows.Forms.Label();
+            this.moneySpentLbl = new System.Windows.Forms.Label();
+            this.fldMoneySpent = new System.Windows.Forms.TextBox();
+            this.moneyWonLbl = new System.Windows.Forms.Label();
+            this.fldMoneyWon = new System.Windows.Forms.TextBox();
+            this.gamePlayedLbl = new System.Windows.Forms.Label();
+            this.fldGamesPlayed = new System.Windows.Forms.TextBox();
+            this.netGainLossLbl = new System.Windows.Forms.Label();
+            this.fldNetGainLoss = new System.Windows.Forms.TextBox();
             this.gbGame.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +70,7 @@
             // 
             // rtbGames
             // 
-            this.rtbGames.Location = new System.Drawing.Point(22, 65);
+            this.rtbGames.Location = new System.Drawing.Point(12, 65);
             this.rtbGames.Name = "rtbGames";
             this.rtbGames.Size = new System.Drawing.Size(231, 475);
             this.rtbGames.TabIndex = 1;
@@ -204,10 +212,10 @@
             // 
             // cancelTryBig
             // 
-            this.cancelTryBig.Location = new System.Drawing.Point(278, 405);
+            this.cancelTryBig.Location = new System.Drawing.Point(274, 405);
             this.cancelTryBig.Name = "cancelTryBig";
             this.cancelTryBig.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cancelTryBig.Size = new System.Drawing.Size(156, 23);
+            this.cancelTryBig.Size = new System.Drawing.Size(160, 23);
             this.cancelTryBig.TabIndex = 15;
             this.cancelTryBig.Text = "Cancel";
             this.cancelTryBig.UseVisualStyleBackColor = true;
@@ -227,11 +235,83 @@
             this.cancelLbl.Size = new System.Drawing.Size(0, 13);
             this.cancelLbl.TabIndex = 16;
             // 
+            // moneySpentLbl
+            // 
+            this.moneySpentLbl.AutoSize = true;
+            this.moneySpentLbl.Location = new System.Drawing.Point(271, 454);
+            this.moneySpentLbl.Name = "moneySpentLbl";
+            this.moneySpentLbl.Size = new System.Drawing.Size(70, 13);
+            this.moneySpentLbl.TabIndex = 17;
+            this.moneySpentLbl.Text = "Money Spent";
+            // 
+            // fldMoneySpent
+            // 
+            this.fldMoneySpent.Location = new System.Drawing.Point(274, 470);
+            this.fldMoneySpent.Name = "fldMoneySpent";
+            this.fldMoneySpent.Size = new System.Drawing.Size(160, 20);
+            this.fldMoneySpent.TabIndex = 18;
+            // 
+            // moneyWonLbl
+            // 
+            this.moneyWonLbl.AutoSize = true;
+            this.moneyWonLbl.Location = new System.Drawing.Point(271, 493);
+            this.moneyWonLbl.Name = "moneyWonLbl";
+            this.moneyWonLbl.Size = new System.Drawing.Size(65, 13);
+            this.moneyWonLbl.TabIndex = 19;
+            this.moneyWonLbl.Text = "Money Won";
+            // 
+            // fldMoneyWon
+            // 
+            this.fldMoneyWon.Location = new System.Drawing.Point(274, 509);
+            this.fldMoneyWon.Name = "fldMoneyWon";
+            this.fldMoneyWon.Size = new System.Drawing.Size(160, 20);
+            this.fldMoneyWon.TabIndex = 20;
+            // 
+            // gamePlayedLbl
+            // 
+            this.gamePlayedLbl.AutoSize = true;
+            this.gamePlayedLbl.Location = new System.Drawing.Point(271, 532);
+            this.gamePlayedLbl.Name = "gamePlayedLbl";
+            this.gamePlayedLbl.Size = new System.Drawing.Size(75, 13);
+            this.gamePlayedLbl.TabIndex = 21;
+            this.gamePlayedLbl.Text = "Games Played";
+            // 
+            // fldGamesPlayed
+            // 
+            this.fldGamesPlayed.Location = new System.Drawing.Point(274, 548);
+            this.fldGamesPlayed.Name = "fldGamesPlayed";
+            this.fldGamesPlayed.Size = new System.Drawing.Size(160, 20);
+            this.fldGamesPlayed.TabIndex = 22;
+            // 
+            // netGainLossLbl
+            // 
+            this.netGainLossLbl.AutoSize = true;
+            this.netGainLossLbl.Location = new System.Drawing.Point(271, 571);
+            this.netGainLossLbl.Name = "netGainLossLbl";
+            this.netGainLossLbl.Size = new System.Drawing.Size(70, 13);
+            this.netGainLossLbl.TabIndex = 23;
+            this.netGainLossLbl.Text = "Net gain/loss";
+            // 
+            // fldNetGainLoss
+            // 
+            this.fldNetGainLoss.Location = new System.Drawing.Point(274, 587);
+            this.fldNetGainLoss.Name = "fldNetGainLoss";
+            this.fldNetGainLoss.Size = new System.Drawing.Size(160, 20);
+            this.fldNetGainLoss.TabIndex = 24;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 571);
+            this.ClientSize = new System.Drawing.Size(726, 669);
+            this.Controls.Add(this.fldNetGainLoss);
+            this.Controls.Add(this.netGainLossLbl);
+            this.Controls.Add(this.fldGamesPlayed);
+            this.Controls.Add(this.gamePlayedLbl);
+            this.Controls.Add(this.fldMoneyWon);
+            this.Controls.Add(this.moneyWonLbl);
+            this.Controls.Add(this.fldMoneySpent);
+            this.Controls.Add(this.moneySpentLbl);
             this.Controls.Add(this.cancelLbl);
             this.Controls.Add(this.cancelTryBig);
             this.Controls.Add(this.rtbWon);
@@ -278,6 +358,14 @@
         private System.Windows.Forms.Button cancelTryBig;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label cancelLbl;
+        private System.Windows.Forms.Label moneySpentLbl;
+        private System.Windows.Forms.TextBox fldMoneySpent;
+        private System.Windows.Forms.Label moneyWonLbl;
+        private System.Windows.Forms.TextBox fldMoneyWon;
+        private System.Windows.Forms.Label gamePlayedLbl;
+        private System.Windows.Forms.TextBox fldGamesPlayed;
+        private System.Windows.Forms.Label netGainLossLbl;
+        private System.Windows.Forms.TextBox fldNetGainLoss;
     }
 }
 

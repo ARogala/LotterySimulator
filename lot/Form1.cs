@@ -13,7 +13,9 @@ namespace lot
         C2DrumMachine dm = new C2DrumMachine(C2DrumMachine.gameTypes.powerball);
         int bucks = 0;
         int scoreValue = 0;
-        
+        int moneySpent = 0;
+        int moneyWon = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -120,6 +122,23 @@ namespace lot
                     dm.clearGameList();
                     if (!cbCoverDrum2.Checked)
                     {
+                        moneySpent -= dm.getGameCost();
+                        dm.play();
+                        moneyWon += dm.score(fldTarget.Text, dm.scGames[0]);
+                        scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
+                        if (scoreValue > 0 && scoreValue < 100)
+                        {
+                            //mark as 1% complete here dont want to stop till big$$$
+                            worker.ReportProgress(1, dm.scGames[0]);
+                          
+                        }
+                        else if (scoreValue > 99)
+                        {
+                            worker.ReportProgress(100);
+                            wow = true;
+                        }
+
+                        /*
                         bucks -= dm.getGameCost();
                         startBucks = bucks;
                         dm.play();
@@ -136,7 +155,7 @@ namespace lot
                             worker.ReportProgress(100);
                             wow = true;
                         }
-                      
+                        */
                     }
                     else
                     {
