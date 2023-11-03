@@ -170,9 +170,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(271, 273);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.Size = new System.Drawing.Size(147, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Target Numbers";
+            this.label2.Text = "Target Numbers - Your Ticket";
             // 
             // btnTryForBig
             // 
@@ -232,9 +232,8 @@
             this.cancelLbl.AutoSize = true;
             this.cancelLbl.Location = new System.Drawing.Point(271, 431);
             this.cancelLbl.Name = "cancelLbl";
-            this.cancelLbl.Size = new System.Drawing.Size(53, 13);
+            this.cancelLbl.Size = new System.Drawing.Size(0, 13);
             this.cancelLbl.TabIndex = 16;
-            //this.cancelLbl.Text = "cancelLbl";
             // 
             // moneySpentLbl
             // 

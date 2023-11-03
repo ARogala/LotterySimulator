@@ -79,7 +79,13 @@ namespace lot
         private void btnClrBucks_Click(object sender, EventArgs e)
         {
             bucks = 0;
+            moneySpent = 0;
+            moneyWon = 0;
             fldBucks.Text = bucks.ToString();
+            fldMoneySpent.Text = moneySpent.ToString();
+            fldMoneyWon.Text = moneyWon.ToString();
+            fldNetGainLoss.Text = "";
+            fldGamesPlayed.Text = "";
         }
 
         //start async operation
