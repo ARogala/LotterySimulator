@@ -75,6 +75,7 @@ namespace lot
             rtbGames.Text = "";
             rtbWon.Text = "";
             cancelLbl.Text = "";
+            sbgamesPlayed.Clear();
         }
 
         private void rgGameRbMega_CheckedChanged(object sender, EventArgs e)
@@ -94,11 +95,13 @@ namespace lot
             bucks = 0;
             moneySpent = 0;
             moneyWon = 0;
+            gamesWon = 0;
             fldBucks.Text = bucks.ToString();
             fldMoneySpent.Text = moneySpent.ToString();
             fldMoneyWon.Text = moneyWon.ToString();
             fldNetGainLoss.Text = "";
             fldGamesPlayed.Text = "";
+            fldGamesWon.Text = "";
         }
 
         //start async operation
@@ -164,20 +167,58 @@ namespace lot
                         dm.playDrum2();
                         for (int i = 0; i < dm.scGames.Count; i++)
                         {
-                            bucks -= dm.getGameCost();
-                            startBucks = bucks;
-                            bucks += dm.score(fldTarget.Text, dm.scGames[i]);
+                            //Console.WriteLine(i);
+                            moneySpent -= dm.getGameCost();
+                            moneyWon += dm.score(fldTarget.Text, dm.scGames[i]);
+                            sbgamesPlayed.Append(dm.scGames[i] + "\n");
                             //display win
                             scoreValue = dm.score(fldTarget.Text, dm.scGames[i]);
-                            if (scoreValue > 0)
+                            //hardest part of the whole thing was to make sure we run through the rest of the drum --- wow may be true at i = 0 
+                            //testing only seems to show Case2 or Case1 and Case4 -- 3 and 5 seem valid to me just not common at all 
+                            if (scoreValue > 0 && scoreValue < 100 && wow == false)
                             {
                                 //mark as 1% complete here dont want to stop till big$$$
+                                gamesWon++;
                                 worker.ReportProgress(1, dm.scGames[i]);
+
                             }
-                            if ((bucks - startBucks) > 999)
+                            else if (scoreValue > 99 && i < (dm.scGames.Count-1) && wow == false)
                             {
-                                worker.ReportProgress(100);
+                                gamesWon++;
+                                worker.ReportProgress(50, dm.scGames[i]);
+                                //Console.WriteLine("Case1");
+                                //Console.WriteLine("i " + i);
                                 wow = true;
+                            }
+                            else if (scoreValue > 99 && i == (dm.scGames.Count-1) && wow == false)
+                            {
+                                gamesWon++;
+                                worker.ReportProgress(100, dm.scGames[i]);
+                                //Console.WriteLine("Case2");
+                                //Console.WriteLine("i " + i);
+                                wow = true;
+                            }
+                            else if (wow == true && i < (dm.scGames.Count-1) && scoreValue > 0)
+                            {
+                                gamesWon++;
+                                worker.ReportProgress(50, dm.scGames[i]);
+                                //Console.WriteLine("Case3");
+                                //Console.WriteLine("i " + i);
+                            }
+                            else if (wow == true && i == (dm.scGames.Count - 1) && scoreValue > 0)
+                            {
+                                gamesWon++;
+                                worker.ReportProgress(100, dm.scGames[i]);
+                                //Console.WriteLine("Case4");
+                                //Console.WriteLine("i " + i);
+                            }
+                            else if (wow == true && i == (dm.scGames.Count - 1) && scoreValue == 0)
+                            {
+                                //except shouldnt report a winning ticket here
+                                string noWinAt100 = "noWinAt100";
+                                worker.ReportProgress(100, noWinAt100);
+                                //Console.WriteLine("Case5");
+                                //Console.WriteLine("i " + i);
                             }
                         }
                     }
@@ -189,18 +230,21 @@ namespace lot
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
            
-            if (e.ProgressPercentage == 1)
+            if (e.ProgressPercentage == 1 || e.ProgressPercentage == 50)
             {
                 rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
                 fldMoneySpent.Text = moneySpent.ToString();
                 fldMoneyWon.Text = moneyWon.ToString();
                 fldGamesWon.Text = gamesWon.ToString();
             }
-            else
+            else if(e.ProgressPercentage == 100)
             {
                 rtbGames.AppendText(sbgamesPlayed.ToString());
-                rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
-                rtbWon.AppendText("WOW");
+                if ((string)e.UserState != "noWinAt100")
+                {
+                    rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
+                    rtbWon.AppendText("WOW");
+                }
                 fldMoneySpent.Text = moneySpent.ToString();
                 fldMoneyWon.Text = moneyWon.ToString();
                 fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
