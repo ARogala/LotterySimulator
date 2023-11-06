@@ -35,8 +35,6 @@
             this.gbGame = new System.Windows.Forms.GroupBox();
             this.rgGameRbPowerBall = new System.Windows.Forms.RadioButton();
             this.rgGameRbMega = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.fldBucks = new System.Windows.Forms.TextBox();
             this.btnClrBucks = new System.Windows.Forms.Button();
             this.fldTarget = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -131,22 +129,6 @@
             this.rgGameRbMega.UseVisualStyleBackColor = true;
             this.rgGameRbMega.CheckedChanged += new System.EventHandler(this.rgGameRbMega_CheckedChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(271, 312);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Bucks";
-            // 
-            // fldBucks
-            // 
-            this.fldBucks.Location = new System.Drawing.Point(274, 328);
-            this.fldBucks.Name = "fldBucks";
-            this.fldBucks.Size = new System.Drawing.Size(160, 20);
-            this.fldBucks.TabIndex = 6;
-            // 
             // btnClrBucks
             // 
             this.btnClrBucks.Location = new System.Drawing.Point(274, 218);
@@ -176,7 +158,7 @@
             // 
             // btnTryForBig
             // 
-            this.btnTryForBig.Location = new System.Drawing.Point(274, 365);
+            this.btnTryForBig.Location = new System.Drawing.Point(274, 315);
             this.btnTryForBig.Name = "btnTryForBig";
             this.btnTryForBig.Size = new System.Drawing.Size(160, 23);
             this.btnTryForBig.TabIndex = 11;
@@ -212,7 +194,7 @@
             // 
             // cancelTryBig
             // 
-            this.cancelTryBig.Location = new System.Drawing.Point(274, 405);
+            this.cancelTryBig.Location = new System.Drawing.Point(274, 344);
             this.cancelTryBig.Name = "cancelTryBig";
             this.cancelTryBig.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cancelTryBig.Size = new System.Drawing.Size(160, 23);
@@ -238,7 +220,7 @@
             // moneySpentLbl
             // 
             this.moneySpentLbl.AutoSize = true;
-            this.moneySpentLbl.Location = new System.Drawing.Point(271, 454);
+            this.moneySpentLbl.Location = new System.Drawing.Point(271, 370);
             this.moneySpentLbl.Name = "moneySpentLbl";
             this.moneySpentLbl.Size = new System.Drawing.Size(70, 13);
             this.moneySpentLbl.TabIndex = 17;
@@ -246,7 +228,7 @@
             // 
             // fldMoneySpent
             // 
-            this.fldMoneySpent.Location = new System.Drawing.Point(274, 470);
+            this.fldMoneySpent.Location = new System.Drawing.Point(274, 386);
             this.fldMoneySpent.Name = "fldMoneySpent";
             this.fldMoneySpent.Size = new System.Drawing.Size(160, 20);
             this.fldMoneySpent.TabIndex = 18;
@@ -254,7 +236,7 @@
             // moneyWonLbl
             // 
             this.moneyWonLbl.AutoSize = true;
-            this.moneyWonLbl.Location = new System.Drawing.Point(271, 493);
+            this.moneyWonLbl.Location = new System.Drawing.Point(271, 409);
             this.moneyWonLbl.Name = "moneyWonLbl";
             this.moneyWonLbl.Size = new System.Drawing.Size(65, 13);
             this.moneyWonLbl.TabIndex = 19;
@@ -262,7 +244,7 @@
             // 
             // fldMoneyWon
             // 
-            this.fldMoneyWon.Location = new System.Drawing.Point(274, 509);
+            this.fldMoneyWon.Location = new System.Drawing.Point(274, 425);
             this.fldMoneyWon.Name = "fldMoneyWon";
             this.fldMoneyWon.Size = new System.Drawing.Size(160, 20);
             this.fldMoneyWon.TabIndex = 20;
@@ -277,7 +259,7 @@
             // netGainLossLbl
             // 
             this.netGainLossLbl.AutoSize = true;
-            this.netGainLossLbl.Location = new System.Drawing.Point(271, 532);
+            this.netGainLossLbl.Location = new System.Drawing.Point(271, 448);
             this.netGainLossLbl.Name = "netGainLossLbl";
             this.netGainLossLbl.Size = new System.Drawing.Size(70, 13);
             this.netGainLossLbl.TabIndex = 23;
@@ -285,7 +267,7 @@
             // 
             // fldNetGainLoss
             // 
-            this.fldNetGainLoss.Location = new System.Drawing.Point(274, 548);
+            this.fldNetGainLoss.Location = new System.Drawing.Point(274, 464);
             this.fldNetGainLoss.Name = "fldNetGainLoss";
             this.fldNetGainLoss.Size = new System.Drawing.Size(160, 20);
             this.fldNetGainLoss.TabIndex = 24;
@@ -319,8 +301,6 @@
             this.Controls.Add(this.fldTarget);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnClrBucks);
-            this.Controls.Add(this.fldBucks);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.gbGame);
             this.Controls.Add(this.btnClrGames);
             this.Controls.Add(this.cbCoverDrum2);
@@ -344,8 +324,6 @@
         private System.Windows.Forms.GroupBox gbGame;
         private System.Windows.Forms.RadioButton rgGameRbPowerBall;
         private System.Windows.Forms.RadioButton rgGameRbMega;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox fldBucks;
         private System.Windows.Forms.Button btnClrBucks;
         private System.Windows.Forms.TextBox fldTarget;
         private System.Windows.Forms.Label label2;

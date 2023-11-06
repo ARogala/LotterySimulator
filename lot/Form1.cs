@@ -11,7 +11,6 @@ namespace lot
     public partial class Form1 : Form
     {
         C2DrumMachine dm = new C2DrumMachine(C2DrumMachine.gameTypes.powerball);
-        int bucks = 0;
         int scoreValue = 0;
         int moneySpent = 0;
         int moneyWon = 0;
@@ -92,11 +91,9 @@ namespace lot
 
         private void btnClrBucks_Click(object sender, EventArgs e)
         {
-            bucks = 0;
             moneySpent = 0;
             moneyWon = 0;
             gamesWon = 0;
-            fldBucks.Text = bucks.ToString();
             fldMoneySpent.Text = moneySpent.ToString();
             fldMoneyWon.Text = moneyWon.ToString();
             fldNetGainLoss.Text = "";
@@ -129,7 +126,6 @@ namespace lot
         {
             BackgroundWorker worker = sender as BackgroundWorker;
        
-            int startBucks = 0;
             bool wow = false;
 
             while (!wow)
@@ -250,10 +246,7 @@ namespace lot
                 fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
                 fldGamesPlayed.Text = Math.Abs((moneySpent / dm.getGameCost())).ToString(); 
                 fldGamesWon.Text = gamesWon.ToString();
-            }
-            fldBucks.Text = bucks.ToString();
-            //fldBucks.Refresh();
-          
+            } 
         }
 
         // This event handler deals with the results of the background operation.
