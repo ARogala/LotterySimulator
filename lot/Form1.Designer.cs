@@ -53,6 +53,7 @@
             this.netGainLossLbl = new System.Windows.Forms.Label();
             this.fldNetGainLoss = new System.Windows.Forms.TextBox();
             this.fldGamesWon = new System.Windows.Forms.TextBox();
+            this.btnGetNewTicket = new System.Windows.Forms.Button();
             this.gbGame.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -158,7 +159,7 @@
             // 
             // btnTryForBig
             // 
-            this.btnTryForBig.Location = new System.Drawing.Point(274, 315);
+            this.btnTryForBig.Location = new System.Drawing.Point(274, 346);
             this.btnTryForBig.Name = "btnTryForBig";
             this.btnTryForBig.Size = new System.Drawing.Size(160, 23);
             this.btnTryForBig.TabIndex = 11;
@@ -194,7 +195,7 @@
             // 
             // cancelTryBig
             // 
-            this.cancelTryBig.Location = new System.Drawing.Point(274, 344);
+            this.cancelTryBig.Location = new System.Drawing.Point(274, 375);
             this.cancelTryBig.Name = "cancelTryBig";
             this.cancelTryBig.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cancelTryBig.Size = new System.Drawing.Size(160, 23);
@@ -212,15 +213,15 @@
             // cancelLbl
             // 
             this.cancelLbl.AutoSize = true;
-            this.cancelLbl.Location = new System.Drawing.Point(271, 431);
+            this.cancelLbl.Location = new System.Drawing.Point(271, 401);
             this.cancelLbl.Name = "cancelLbl";
-            this.cancelLbl.Size = new System.Drawing.Size(0, 13);
+            this.cancelLbl.Size = new System.Drawing.Size(40, 13);
             this.cancelLbl.TabIndex = 16;
             // 
             // moneySpentLbl
             // 
             this.moneySpentLbl.AutoSize = true;
-            this.moneySpentLbl.Location = new System.Drawing.Point(271, 370);
+            this.moneySpentLbl.Location = new System.Drawing.Point(271, 426);
             this.moneySpentLbl.Name = "moneySpentLbl";
             this.moneySpentLbl.Size = new System.Drawing.Size(70, 13);
             this.moneySpentLbl.TabIndex = 17;
@@ -228,7 +229,7 @@
             // 
             // fldMoneySpent
             // 
-            this.fldMoneySpent.Location = new System.Drawing.Point(274, 386);
+            this.fldMoneySpent.Location = new System.Drawing.Point(274, 442);
             this.fldMoneySpent.Name = "fldMoneySpent";
             this.fldMoneySpent.Size = new System.Drawing.Size(160, 20);
             this.fldMoneySpent.TabIndex = 18;
@@ -236,7 +237,7 @@
             // moneyWonLbl
             // 
             this.moneyWonLbl.AutoSize = true;
-            this.moneyWonLbl.Location = new System.Drawing.Point(271, 409);
+            this.moneyWonLbl.Location = new System.Drawing.Point(271, 465);
             this.moneyWonLbl.Name = "moneyWonLbl";
             this.moneyWonLbl.Size = new System.Drawing.Size(65, 13);
             this.moneyWonLbl.TabIndex = 19;
@@ -244,7 +245,7 @@
             // 
             // fldMoneyWon
             // 
-            this.fldMoneyWon.Location = new System.Drawing.Point(274, 425);
+            this.fldMoneyWon.Location = new System.Drawing.Point(274, 481);
             this.fldMoneyWon.Name = "fldMoneyWon";
             this.fldMoneyWon.Size = new System.Drawing.Size(160, 20);
             this.fldMoneyWon.TabIndex = 20;
@@ -259,7 +260,7 @@
             // netGainLossLbl
             // 
             this.netGainLossLbl.AutoSize = true;
-            this.netGainLossLbl.Location = new System.Drawing.Point(271, 448);
+            this.netGainLossLbl.Location = new System.Drawing.Point(271, 504);
             this.netGainLossLbl.Name = "netGainLossLbl";
             this.netGainLossLbl.Size = new System.Drawing.Size(70, 13);
             this.netGainLossLbl.TabIndex = 23;
@@ -267,7 +268,7 @@
             // 
             // fldNetGainLoss
             // 
-            this.fldNetGainLoss.Location = new System.Drawing.Point(274, 464);
+            this.fldNetGainLoss.Location = new System.Drawing.Point(274, 520);
             this.fldNetGainLoss.Name = "fldNetGainLoss";
             this.fldNetGainLoss.Size = new System.Drawing.Size(160, 20);
             this.fldNetGainLoss.TabIndex = 24;
@@ -279,11 +280,22 @@
             this.fldGamesWon.Size = new System.Drawing.Size(228, 20);
             this.fldGamesWon.TabIndex = 25;
             // 
+            // btnGetNewTicket
+            // 
+            this.btnGetNewTicket.Location = new System.Drawing.Point(274, 315);
+            this.btnGetNewTicket.Name = "btnGetNewTicket";
+            this.btnGetNewTicket.Size = new System.Drawing.Size(159, 22);
+            this.btnGetNewTicket.TabIndex = 26;
+            this.btnGetNewTicket.Text = "Get New Ticket";
+            this.btnGetNewTicket.UseVisualStyleBackColor = true;
+            this.btnGetNewTicket.Click += new System.EventHandler(this.btnGetNewTicket_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 669);
+            this.Controls.Add(this.btnGetNewTicket);
             this.Controls.Add(this.fldGamesWon);
             this.Controls.Add(this.fldNetGainLoss);
             this.Controls.Add(this.netGainLossLbl);
@@ -342,6 +354,7 @@
         private System.Windows.Forms.Label netGainLossLbl;
         private System.Windows.Forms.TextBox fldNetGainLoss;
         private System.Windows.Forms.TextBox fldGamesWon;
+        private System.Windows.Forms.Button btnGetNewTicket;
     }
 }
 

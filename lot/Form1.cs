@@ -76,7 +76,7 @@ namespace lot
             cancelLbl.Text = "";
             sbgamesPlayed.Clear();
             gamesWon = 0;
-            fldGamesPlayed.Text = "";
+            fldGamesPlayed.Text = "0";
             fldGamesWon.Text = gamesWon.ToString();
         }
 
@@ -98,7 +98,7 @@ namespace lot
             moneyWon = 0;
             fldMoneySpent.Text = moneySpent.ToString();
             fldMoneyWon.Text = moneyWon.ToString();
-            fldNetGainLoss.Text = "";
+            fldNetGainLoss.Text = "0";
         }
 
         //start async operation
@@ -264,6 +264,11 @@ namespace lot
             {
                 cancelLbl.Text = "Done!";
             }
+        }
+
+        private void btnGetNewTicket_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
