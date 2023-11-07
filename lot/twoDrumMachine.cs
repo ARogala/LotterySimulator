@@ -14,7 +14,7 @@ namespace lot
         //scDrum1Picks and scDrum2Picks store the randomly selected numbers -- match these to your ticket and win
         public StringCollection scDrum1Picks = new StringCollection();
         public StringCollection scDrum2Picks = new StringCollection();
-        //stores all the randomly selected numbers in both scDrum1Picks and scDrum2Picks -- 19 30 33 48 59 [26]
+        //stores all the randomly selected numbers in both scDrum1Picks and scDrum2Picks
         public StringCollection scGames = new StringCollection();
         private int d1NMax;
         private int d1NPicks;
@@ -197,7 +197,34 @@ namespace lot
             scGames.Add(sb.ToString());
             return (sb.ToString());
         }
+        //should so same as play except DO NOT add to scGames
+        public string GenerateNewTicket()
+        {
+            StringBuilder sb = new StringBuilder();
 
+            newGame();
+            //______drum1________
+            for (int i = 0; i <= d1NPicks; i++)
+                getN(1);
+            ArrayList.Adapter(scDrum1Picks).Sort();
+            for (int i = 0; i <= d1NPicks; i++)
+            {
+                sb.Append(scDrum1Picks[i]);
+                sb.Append(" ");
+            }
+            //_____drum2__________
+            for (int i = 0; i <= d2NPicks; i++)
+                getN(2);
+            ArrayList.Adapter(scDrum2Picks).Sort();
+            for (int i = 0; i <= d2NPicks; i++)
+            {
+                sb.Append("[");
+                sb.Append(scDrum2Picks[i]);
+                sb.Append("] ");
+            }
+           
+            return (sb.ToString());
+        }
         //target is the numbers on your ticket game is scGames[0] which are the random picked numbers to match
         //foreach num in game check for a matching num on ticket
         //if matched number is not 2nd drum (powerball) add 1

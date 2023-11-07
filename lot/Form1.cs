@@ -42,10 +42,6 @@ namespace lot
                 {
                     gamesWon++;
                     rtbWon.AppendText(dm.scGames[0] + " won " + scoreValue.ToString() + "\n");
-                    fldMoneySpent.Text = moneySpent.ToString();
-                    fldMoneyWon.Text = moneyWon.ToString();
-                    fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
-                    fldGamesPlayed.Text = Math.Abs((moneySpent / dm.getGameCost())).ToString();
                     fldGamesWon.Text = gamesWon.ToString();
                 }
             }
@@ -66,13 +62,10 @@ namespace lot
                     {
                         gamesWon++;
                         rtbWon.AppendText(dm.scGames[i] + " won " + scoreValue.ToString() + "\n");
-                        fldMoneySpent.Text = moneySpent.ToString();
-                        fldMoneyWon.Text = moneyWon.ToString();
-                        fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
-                        fldGamesPlayed.Text = Math.Abs((moneySpent / dm.getGameCost())).ToString();
                         fldGamesWon.Text = gamesWon.ToString();
                     }
                 }
+                fldGamesPlayed.Text = Math.Abs((moneySpent / dm.getGameCost())).ToString();
             }
         }
 
@@ -275,7 +268,7 @@ namespace lot
 
         private void btnGetNewTicket_Click(object sender, EventArgs e)
         {
-
+            fldTarget.Text = dm.GenerateNewTicket();
         }
     }
 }
