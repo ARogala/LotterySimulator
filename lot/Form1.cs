@@ -75,6 +75,9 @@ namespace lot
             rtbWon.Text = "";
             cancelLbl.Text = "";
             sbgamesPlayed.Clear();
+            gamesWon = 0;
+            fldGamesPlayed.Text = "";
+            fldGamesWon.Text = gamesWon.ToString();
         }
 
         private void rgGameRbMega_CheckedChanged(object sender, EventArgs e)
@@ -93,12 +96,9 @@ namespace lot
         {
             moneySpent = 0;
             moneyWon = 0;
-            gamesWon = 0;
             fldMoneySpent.Text = moneySpent.ToString();
             fldMoneyWon.Text = moneyWon.ToString();
             fldNetGainLoss.Text = "";
-            fldGamesPlayed.Text = "";
-            fldGamesWon.Text = "";
         }
 
         //start async operation
