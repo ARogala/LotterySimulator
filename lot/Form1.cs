@@ -35,14 +35,18 @@ namespace lot
                 fldMoneySpent.Text = moneySpent.ToString();
                 fldMoneyWon.Text = moneyWon.ToString();
                 fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
+                fldGamesPlayed.Text = Math.Abs((moneySpent / dm.getGameCost())).ToString();
                 //display win
                 scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
                 if (scoreValue > 0)
                 {
+                    gamesWon++;
                     rtbWon.AppendText(dm.scGames[0] + " won " + scoreValue.ToString() + "\n");
                     fldMoneySpent.Text = moneySpent.ToString();
                     fldMoneyWon.Text = moneyWon.ToString();
                     fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
+                    fldGamesPlayed.Text = Math.Abs((moneySpent / dm.getGameCost())).ToString();
+                    fldGamesWon.Text = gamesWon.ToString();
                 }
             }
             else
@@ -60,10 +64,13 @@ namespace lot
                     scoreValue = dm.score(fldTarget.Text, dm.scGames[i]);
                     if (scoreValue > 0)
                     {
+                        gamesWon++;
                         rtbWon.AppendText(dm.scGames[i] + " won " + scoreValue.ToString() + "\n");
                         fldMoneySpent.Text = moneySpent.ToString();
                         fldMoneyWon.Text = moneyWon.ToString();
                         fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
+                        fldGamesPlayed.Text = Math.Abs((moneySpent / dm.getGameCost())).ToString();
+                        fldGamesWon.Text = gamesWon.ToString();
                     }
                 }
             }
