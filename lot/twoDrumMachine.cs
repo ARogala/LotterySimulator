@@ -289,9 +289,7 @@ namespace lot
                     }
                     break;
             }
-            //make this outupt to UI
-            //if (value > 0)
-                //Console.WriteLine(game + " won " + value.ToString());
+           
             return (value);
         }
 

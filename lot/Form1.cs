@@ -15,7 +15,10 @@ namespace lot
         int moneySpent = 0;
         int moneyWon = 0;
         int gamesWon = 0;
+        //this string may get REALLY large -- not sure what to do but will likly crash the app when we go for JACKPOT
+        //maybe just mute output for jackpot or dump to text file periodically then display at end...
         StringBuilder sbgamesPlayed = new StringBuilder();
+        
 
         public Form1()
         {
@@ -26,23 +29,24 @@ namespace lot
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
+            
             dm.clearGameList();
             if (!cbCoverDrum2.Checked)
             {
                 moneySpent -= dm.getGameCost();
                 rtbGames.AppendText(dm.play() + "\n");
                 moneyWon += dm.score(fldTarget.Text, dm.scGames[0]);
-                fldMoneySpent.Text = moneySpent.ToString();
-                fldMoneyWon.Text = moneyWon.ToString();
-                fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
-                fldGamesPlayed.Text = Math.Abs((moneySpent / dm.getGameCost())).ToString();
+                fldMoneySpent.Text = $"{moneySpent:n0}";
+                fldMoneyWon.Text = $"{moneyWon:n0}";
+                fldNetGainLoss.Text = $"{(moneySpent + moneyWon):n0}";
+                fldGamesPlayed.Text = $"{Math.Abs((moneySpent / dm.getGameCost())):n0}";
                 //display win
                 scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
                 if (scoreValue > 0)
                 {
                     gamesWon++;
                     rtbWon.AppendText(dm.scGames[0] + " won " + scoreValue.ToString() + "\n");
-                    fldGamesWon.Text = gamesWon.ToString();
+                    fldGamesWon.Text = $"{gamesWon:n0}";
                 }
             }
             else
@@ -53,19 +57,19 @@ namespace lot
                     moneySpent -= dm.getGameCost();
                     rtbGames.AppendText(dm.scGames[i] + "\n");
                     moneyWon += dm.score(fldTarget.Text, dm.scGames[i]);
-                    fldMoneySpent.Text = moneySpent.ToString();
-                    fldMoneyWon.Text = moneyWon.ToString();
-                    fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
+                    fldMoneySpent.Text = $"{moneySpent:n0}";
+                    fldMoneyWon.Text = $"{moneyWon:n0}";
+                    fldNetGainLoss.Text = $"{(moneySpent + moneyWon):n0}";
                     //display win
                     scoreValue = dm.score(fldTarget.Text, dm.scGames[i]);
                     if (scoreValue > 0)
                     {
                         gamesWon++;
                         rtbWon.AppendText(dm.scGames[i] + " won " + scoreValue.ToString() + "\n");
-                        fldGamesWon.Text = gamesWon.ToString();
+                        fldGamesWon.Text = $"{gamesWon:n0}";
                     }
                 }
-                fldGamesPlayed.Text = Math.Abs((moneySpent / dm.getGameCost())).ToString();
+                fldGamesPlayed.Text = $"{Math.Abs((moneySpent / dm.getGameCost())):n0}";
             }
         }
 
@@ -229,9 +233,9 @@ namespace lot
             if (e.ProgressPercentage == 1 || e.ProgressPercentage == 50)
             {
                 rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
-                fldMoneySpent.Text = moneySpent.ToString();
-                fldMoneyWon.Text = moneyWon.ToString();
-                fldGamesWon.Text = gamesWon.ToString();
+                fldMoneySpent.Text = $"{moneySpent:n0}";
+                fldMoneyWon.Text = $"{moneyWon:n0}";
+                fldGamesWon.Text = $"{gamesWon:n0}";
             }
             else if(e.ProgressPercentage == 100)
             {
@@ -241,11 +245,11 @@ namespace lot
                     rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
                     rtbWon.AppendText("WOW");
                 }
-                fldMoneySpent.Text = moneySpent.ToString();
-                fldMoneyWon.Text = moneyWon.ToString();
-                fldNetGainLoss.Text = (moneySpent + moneyWon).ToString();
-                fldGamesPlayed.Text = Math.Abs((moneySpent / dm.getGameCost())).ToString(); 
-                fldGamesWon.Text = gamesWon.ToString();
+                fldMoneySpent.Text = $"{moneySpent:n0}";
+                fldMoneyWon.Text = $"{moneyWon:n0}";
+                fldNetGainLoss.Text = $"{(moneySpent + moneyWon):n0}";
+                fldGamesPlayed.Text = $"{Math.Abs((moneySpent / dm.getGameCost())):n0}";
+                fldGamesWon.Text = $"{gamesWon:n0}";
             } 
         }
 
