@@ -146,6 +146,11 @@ namespace lot
                     {
                         moneySpent -= dm.getGameCost();
                         sbgamesPlayed.Append(dm.play() + "\n");
+                        //every hundred games or 200$ for $1 games update games playe UI -- clear it so Memory dont go out of control
+                        if (Math.Abs(moneySpent)%200 == 0)
+                        {
+                            worker.ReportProgress(2);
+                        }
                         moneyWon += dm.score(fldTarget.Text, dm.scGames[0]);
                         scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
                         if (scoreValue > 0 && scoreValue < 100)
@@ -171,6 +176,11 @@ namespace lot
                             moneySpent -= dm.getGameCost();
                             moneyWon += dm.score(fldTarget.Text, dm.scGames[i]);
                             sbgamesPlayed.Append(dm.scGames[i] + "\n");
+                            //every hundred games or 200$ for $1 games update games playe UI -- clear it so Memory dont go out of control
+                            if (Math.Abs(moneySpent) % 200 == 0)
+                            {
+                                worker.ReportProgress(2);
+                            }
                             //display win
                             scoreValue = dm.score(fldTarget.Text, dm.scGames[i]);
                             //hardest part of the whole thing was to make sure we run through the rest of the drum --- wow may be true at i = 0 
@@ -230,6 +240,7 @@ namespace lot
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
            
+
             if (e.ProgressPercentage == 1 || e.ProgressPercentage == 50)
             {
                 rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
@@ -240,6 +251,7 @@ namespace lot
             else if(e.ProgressPercentage == 100)
             {
                 rtbGames.AppendText(sbgamesPlayed.ToString());
+                sbgamesPlayed.Clear();
                 if ((string)e.UserState != "noWinAt100")
                 {
                     rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
@@ -250,7 +262,14 @@ namespace lot
                 fldNetGainLoss.Text = $"{(moneySpent + moneyWon):n0}";
                 fldGamesPlayed.Text = $"{Math.Abs((moneySpent / dm.getGameCost())):n0}";
                 fldGamesWon.Text = $"{gamesWon:n0}";
-            } 
+            }
+            //update games played UI clear the string or memory goes out of control
+            else if (e.ProgressPercentage == 2)
+            {
+                rtbGames.AppendText(sbgamesPlayed.ToString());
+                sbgamesPlayed.Clear();
+            }
+
         }
 
         // This event handler deals with the results of the background operation.
