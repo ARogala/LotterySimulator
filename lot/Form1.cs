@@ -292,5 +292,14 @@ namespace lot
         {
             fldTarget.Text = dm.GenerateNewTicket();
         }
+
+        private void linkLblToLotterySite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Specify that the link was visited.
+            this.linkLblToLotterySite.LinkVisited = true;
+
+            // Navigate to a URL.
+            System.Diagnostics.Process.Start("https://www.njlottery.com/en-us/home.html");
+        }
     }
 }

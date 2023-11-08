@@ -34,6 +34,8 @@
             this.cbCoverDrum2 = new System.Windows.Forms.CheckBox();
             this.btnClrGames = new System.Windows.Forms.Button();
             this.gbGame = new System.Windows.Forms.GroupBox();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.rgGameRbPowerBall = new System.Windows.Forms.RadioButton();
             this.rgGameRbMega = new System.Windows.Forms.RadioButton();
@@ -57,14 +59,12 @@
             this.fldGamesWon = new System.Windows.Forms.TextBox();
             this.btnGetNewTicket = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLblToLotterySite = new System.Windows.Forms.LinkLabel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.gbGame.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -121,6 +121,28 @@
             this.gbGame.TabIndex = 4;
             this.gbGame.TabStop = false;
             this.gbGame.Text = "Game";
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(11, 111);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(74, 17);
+            this.radioButton5.TabIndex = 4;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "NJ Cash 5";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(11, 88);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(71, 17);
+            this.radioButton4.TabIndex = 3;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "NJ Pick 6";
+            this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
@@ -330,6 +352,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Try For JackPot?";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(55, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Stops At Match 5";
+            // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
@@ -352,37 +383,6 @@
             this.radioButton2.Text = "Yes";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Stops At Match 5";
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(11, 88);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(71, 17);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "NJ Pick 6";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(11, 111);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(74, 17);
-            this.radioButton5.TabIndex = 4;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "NJ Cash 5";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -401,20 +401,22 @@
             this.label4.TabIndex = 29;
             this.label4.Text = "X num Years";
             // 
-            // linkLabel1
+            // linkLblToLotterySite
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(9, 550);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(142, 13);
-            this.linkLabel1.TabIndex = 30;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Game Information and Prizes";
+            this.linkLblToLotterySite.AutoSize = true;
+            this.linkLblToLotterySite.Location = new System.Drawing.Point(9, 550);
+            this.linkLblToLotterySite.Name = "linkLblToLotterySite";
+            this.linkLblToLotterySite.Size = new System.Drawing.Size(142, 13);
+            this.linkLblToLotterySite.TabIndex = 30;
+            this.linkLblToLotterySite.TabStop = true;
+            this.linkLblToLotterySite.Text = "Game Information and Prizes";
+            this.linkLblToLotterySite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblToLotterySite_LinkClicked);
             // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(12, 566);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(231, 142);
             this.richTextBox1.TabIndex = 31;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
@@ -425,7 +427,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 745);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.linkLblToLotterySite);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
@@ -500,7 +502,7 @@
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLblToLotterySite;
         private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
