@@ -197,7 +197,7 @@ namespace lot
             scGames.Add(sb.ToString());
             return (sb.ToString());
         }
-        //should so same as play except DO NOT add to scGames
+        //same as play except DO NOT add to scGames
         public string GenerateNewTicket()
         {
             StringBuilder sb = new StringBuilder();

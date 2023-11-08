@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnPlay = new System.Windows.Forms.Button();
             this.rtbGames = new System.Windows.Forms.RichTextBox();
             this.cbCoverDrum2 = new System.Windows.Forms.CheckBox();
             this.btnClrGames = new System.Windows.Forms.Button();
             this.gbGame = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.rgGameRbPowerBall = new System.Windows.Forms.RadioButton();
             this.rgGameRbMega = new System.Windows.Forms.RadioButton();
             this.btnClrBucks = new System.Windows.Forms.Button();
@@ -54,14 +56,25 @@
             this.fldNetGainLoss = new System.Windows.Forms.TextBox();
             this.fldGamesWon = new System.Windows.Forms.TextBox();
             this.btnGetNewTicket = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.gbGame.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(274, 247);
+            this.btnPlay.Location = new System.Drawing.Point(270, 267);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(160, 23);
+            this.btnPlay.Size = new System.Drawing.Size(164, 23);
             this.btnPlay.TabIndex = 0;
             this.btnPlay.Text = "Don\'t Get Your Hopes Up!";
             this.btnPlay.UseVisualStyleBackColor = true;
@@ -78,7 +91,7 @@
             // cbCoverDrum2
             // 
             this.cbCoverDrum2.AutoSize = true;
-            this.cbCoverDrum2.Location = new System.Drawing.Point(283, 29);
+            this.cbCoverDrum2.Location = new System.Drawing.Point(272, 39);
             this.cbCoverDrum2.Name = "cbCoverDrum2";
             this.cbCoverDrum2.Size = new System.Drawing.Size(91, 17);
             this.cbCoverDrum2.TabIndex = 2;
@@ -87,9 +100,9 @@
             // 
             // btnClrGames
             // 
-            this.btnClrGames.Location = new System.Drawing.Point(274, 189);
+            this.btnClrGames.Location = new System.Drawing.Point(270, 209);
             this.btnClrGames.Name = "btnClrGames";
-            this.btnClrGames.Size = new System.Drawing.Size(160, 23);
+            this.btnClrGames.Size = new System.Drawing.Size(164, 23);
             this.btnClrGames.TabIndex = 3;
             this.btnClrGames.Text = "Clear Games";
             this.btnClrGames.UseVisualStyleBackColor = true;
@@ -97,20 +110,34 @@
             // 
             // gbGame
             // 
+            this.gbGame.Controls.Add(this.radioButton5);
+            this.gbGame.Controls.Add(this.radioButton4);
+            this.gbGame.Controls.Add(this.radioButton1);
             this.gbGame.Controls.Add(this.rgGameRbPowerBall);
             this.gbGame.Controls.Add(this.rgGameRbMega);
-            this.gbGame.Location = new System.Drawing.Point(280, 65);
+            this.gbGame.Location = new System.Drawing.Point(272, 65);
             this.gbGame.Name = "gbGame";
-            this.gbGame.Size = new System.Drawing.Size(154, 100);
+            this.gbGame.Size = new System.Drawing.Size(162, 138);
             this.gbGame.TabIndex = 4;
             this.gbGame.TabStop = false;
             this.gbGame.Text = "Game";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(11, 65);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(94, 17);
+            this.radioButton1.TabIndex = 2;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "NJ Cash 4 Life";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // rgGameRbPowerBall
             // 
             this.rgGameRbPowerBall.AutoSize = true;
             this.rgGameRbPowerBall.Checked = true;
-            this.rgGameRbPowerBall.Location = new System.Drawing.Point(16, 59);
+            this.rgGameRbPowerBall.Location = new System.Drawing.Point(11, 42);
             this.rgGameRbPowerBall.Name = "rgGameRbPowerBall";
             this.rgGameRbPowerBall.Size = new System.Drawing.Size(72, 17);
             this.rgGameRbPowerBall.TabIndex = 1;
@@ -122,7 +149,7 @@
             // rgGameRbMega
             // 
             this.rgGameRbMega.AutoSize = true;
-            this.rgGameRbMega.Location = new System.Drawing.Point(16, 29);
+            this.rgGameRbMega.Location = new System.Drawing.Point(11, 19);
             this.rgGameRbMega.Name = "rgGameRbMega";
             this.rgGameRbMega.Size = new System.Drawing.Size(86, 17);
             this.rgGameRbMega.TabIndex = 0;
@@ -132,9 +159,9 @@
             // 
             // btnClrBucks
             // 
-            this.btnClrBucks.Location = new System.Drawing.Point(274, 218);
+            this.btnClrBucks.Location = new System.Drawing.Point(270, 238);
             this.btnClrBucks.Name = "btnClrBucks";
-            this.btnClrBucks.Size = new System.Drawing.Size(160, 23);
+            this.btnClrBucks.Size = new System.Drawing.Size(164, 23);
             this.btnClrBucks.TabIndex = 8;
             this.btnClrBucks.Text = "Clear Bucks";
             this.btnClrBucks.UseVisualStyleBackColor = true;
@@ -142,16 +169,16 @@
             // 
             // fldTarget
             // 
-            this.fldTarget.Location = new System.Drawing.Point(274, 289);
+            this.fldTarget.Location = new System.Drawing.Point(270, 309);
             this.fldTarget.Name = "fldTarget";
-            this.fldTarget.Size = new System.Drawing.Size(160, 20);
+            this.fldTarget.Size = new System.Drawing.Size(164, 20);
             this.fldTarget.TabIndex = 10;
             this.fldTarget.Text = "19 30 33 48 59 [26]";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(271, 273);
+            this.label2.Location = new System.Drawing.Point(271, 293);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(147, 13);
             this.label2.TabIndex = 9;
@@ -159,9 +186,9 @@
             // 
             // btnTryForBig
             // 
-            this.btnTryForBig.Location = new System.Drawing.Point(274, 346);
+            this.btnTryForBig.Location = new System.Drawing.Point(270, 363);
             this.btnTryForBig.Name = "btnTryForBig";
-            this.btnTryForBig.Size = new System.Drawing.Size(160, 23);
+            this.btnTryForBig.Size = new System.Drawing.Size(164, 23);
             this.btnTryForBig.TabIndex = 11;
             this.btnTryForBig.Text = "Try for Big";
             this.btnTryForBig.UseVisualStyleBackColor = true;
@@ -195,10 +222,10 @@
             // 
             // cancelTryBig
             // 
-            this.cancelTryBig.Location = new System.Drawing.Point(274, 375);
+            this.cancelTryBig.Location = new System.Drawing.Point(270, 475);
             this.cancelTryBig.Name = "cancelTryBig";
             this.cancelTryBig.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cancelTryBig.Size = new System.Drawing.Size(160, 23);
+            this.cancelTryBig.Size = new System.Drawing.Size(164, 23);
             this.cancelTryBig.TabIndex = 15;
             this.cancelTryBig.Text = "Cancel";
             this.cancelTryBig.UseVisualStyleBackColor = true;
@@ -213,15 +240,16 @@
             // cancelLbl
             // 
             this.cancelLbl.AutoSize = true;
-            this.cancelLbl.Location = new System.Drawing.Point(271, 401);
+            this.cancelLbl.Location = new System.Drawing.Point(271, 501);
             this.cancelLbl.Name = "cancelLbl";
             this.cancelLbl.Size = new System.Drawing.Size(40, 13);
             this.cancelLbl.TabIndex = 16;
+            this.cancelLbl.Text = "Cancel";
             // 
             // moneySpentLbl
             // 
             this.moneySpentLbl.AutoSize = true;
-            this.moneySpentLbl.Location = new System.Drawing.Point(271, 426);
+            this.moneySpentLbl.Location = new System.Drawing.Point(271, 527);
             this.moneySpentLbl.Name = "moneySpentLbl";
             this.moneySpentLbl.Size = new System.Drawing.Size(70, 13);
             this.moneySpentLbl.TabIndex = 17;
@@ -229,15 +257,15 @@
             // 
             // fldMoneySpent
             // 
-            this.fldMoneySpent.Location = new System.Drawing.Point(274, 442);
+            this.fldMoneySpent.Location = new System.Drawing.Point(270, 543);
             this.fldMoneySpent.Name = "fldMoneySpent";
-            this.fldMoneySpent.Size = new System.Drawing.Size(160, 20);
+            this.fldMoneySpent.Size = new System.Drawing.Size(164, 20);
             this.fldMoneySpent.TabIndex = 18;
             // 
             // moneyWonLbl
             // 
             this.moneyWonLbl.AutoSize = true;
-            this.moneyWonLbl.Location = new System.Drawing.Point(271, 465);
+            this.moneyWonLbl.Location = new System.Drawing.Point(271, 566);
             this.moneyWonLbl.Name = "moneyWonLbl";
             this.moneyWonLbl.Size = new System.Drawing.Size(65, 13);
             this.moneyWonLbl.TabIndex = 19;
@@ -245,9 +273,9 @@
             // 
             // fldMoneyWon
             // 
-            this.fldMoneyWon.Location = new System.Drawing.Point(274, 481);
+            this.fldMoneyWon.Location = new System.Drawing.Point(270, 582);
             this.fldMoneyWon.Name = "fldMoneyWon";
-            this.fldMoneyWon.Size = new System.Drawing.Size(160, 20);
+            this.fldMoneyWon.Size = new System.Drawing.Size(164, 20);
             this.fldMoneyWon.TabIndex = 20;
             // 
             // fldGamesPlayed
@@ -260,7 +288,7 @@
             // netGainLossLbl
             // 
             this.netGainLossLbl.AutoSize = true;
-            this.netGainLossLbl.Location = new System.Drawing.Point(271, 504);
+            this.netGainLossLbl.Location = new System.Drawing.Point(271, 605);
             this.netGainLossLbl.Name = "netGainLossLbl";
             this.netGainLossLbl.Size = new System.Drawing.Size(70, 13);
             this.netGainLossLbl.TabIndex = 23;
@@ -268,9 +296,9 @@
             // 
             // fldNetGainLoss
             // 
-            this.fldNetGainLoss.Location = new System.Drawing.Point(274, 520);
+            this.fldNetGainLoss.Location = new System.Drawing.Point(270, 621);
             this.fldNetGainLoss.Name = "fldNetGainLoss";
-            this.fldNetGainLoss.Size = new System.Drawing.Size(160, 20);
+            this.fldNetGainLoss.Size = new System.Drawing.Size(164, 20);
             this.fldNetGainLoss.TabIndex = 24;
             // 
             // fldGamesWon
@@ -282,19 +310,125 @@
             // 
             // btnGetNewTicket
             // 
-            this.btnGetNewTicket.Location = new System.Drawing.Point(274, 315);
+            this.btnGetNewTicket.Location = new System.Drawing.Point(270, 335);
             this.btnGetNewTicket.Name = "btnGetNewTicket";
-            this.btnGetNewTicket.Size = new System.Drawing.Size(159, 22);
+            this.btnGetNewTicket.Size = new System.Drawing.Size(164, 22);
             this.btnGetNewTicket.TabIndex = 26;
             this.btnGetNewTicket.Text = "Get New Ticket";
             this.btnGetNewTicket.UseVisualStyleBackColor = true;
             this.btnGetNewTicket.Click += new System.EventHandler(this.btnGetNewTicket_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Location = new System.Drawing.Point(270, 392);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(164, 77);
+            this.groupBox1.TabIndex = 27;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Try For JackPot?";
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(10, 42);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(39, 17);
+            this.radioButton3.TabIndex = 1;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "No";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(10, 19);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(43, 17);
+            this.radioButton2.TabIndex = 0;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Yes";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(55, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Stops At Match 5";
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(11, 88);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(71, 17);
+            this.radioButton4.TabIndex = 3;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "NJ Pick 6";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(11, 111);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(74, 17);
+            this.radioButton5.TabIndex = 4;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "NJ Cash 5";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(470, 550);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(221, 13);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Years needed to win playing 3 tickets a week";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(470, 582);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 13);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "X num Years";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(9, 550);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(142, 13);
+            this.linkLabel1.TabIndex = 30;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Game Information and Prizes";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(12, 566);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(231, 142);
+            this.richTextBox1.TabIndex = 31;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 669);
+            this.ClientSize = new System.Drawing.Size(726, 745);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGetNewTicket);
             this.Controls.Add(this.fldGamesWon);
             this.Controls.Add(this.fldNetGainLoss);
@@ -319,9 +453,11 @@
             this.Controls.Add(this.rtbGames);
             this.Controls.Add(this.btnPlay);
             this.Name = "Form1";
-            this.Text = "Lottery Simulator -- Hopes are Futile";
+            this.Text = "Lottery Simulator 2023 Geek Fest -- Hopes are Futile!! The Collective Is Winning";
             this.gbGame.ResumeLayout(false);
             this.gbGame.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,6 +491,17 @@
         private System.Windows.Forms.TextBox fldNetGainLoss;
         private System.Windows.Forms.TextBox fldGamesWon;
         private System.Windows.Forms.Button btnGetNewTicket;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

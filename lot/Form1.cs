@@ -15,8 +15,7 @@ namespace lot
         int moneySpent = 0;
         int moneyWon = 0;
         int gamesWon = 0;
-        //this string may get REALLY large -- not sure what to do but will likly crash the app when we go for JACKPOT
-        //maybe just mute output for jackpot or dump to text file periodically then display at end...
+        
         StringBuilder sbgamesPlayed = new StringBuilder();
         
 
