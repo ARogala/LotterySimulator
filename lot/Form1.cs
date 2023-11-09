@@ -81,6 +81,7 @@ namespace lot
             gamesWon = 0;
             fldGamesPlayed.Text = "0";
             fldGamesWon.Text = gamesWon.ToString();
+            yearsToWinLbl.Text = "";
         }
 
         private void rgGameRbMega_CheckedChanged(object sender, EventArgs e)
@@ -261,6 +262,7 @@ namespace lot
                 fldNetGainLoss.Text = $"{(moneySpent + moneyWon):n0}";
                 fldGamesPlayed.Text = $"{Math.Abs((moneySpent / dm.getGameCost())):n0}";
                 fldGamesWon.Text = $"{gamesWon:n0}";
+                yearsToWinLbl.Text = $"Playing 5 games a week it will take you\n{Math.Abs(moneySpent / dm.getGameCost())/(5.0*52.0):n2} years to win!";
             }
             //update games played UI clear the string or memory goes out of control
             else if (e.ProgressPercentage == 2)
