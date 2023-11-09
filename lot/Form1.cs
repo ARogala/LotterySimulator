@@ -12,6 +12,7 @@ namespace lot
     {
         C2DrumMachine dm = new C2DrumMachine(C2DrumMachine.gameTypes.powerball);
         int scoreValue = 0;
+        int prizeGoal = 1000;
         int moneySpent = 0;
         int moneyWon = 0;
         int gamesWon = 0;
@@ -159,14 +160,14 @@ namespace lot
                         }
                         moneyWon += dm.score(fldTarget.Text, dm.scGames[0]);
                         scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
-                        if (scoreValue > 0 && scoreValue < 100)
+                        if (scoreValue > 0 && scoreValue < prizeGoal)
                         {
                             //mark as 1% complete here dont want to stop till big$$$
                             gamesWon++;
                             worker.ReportProgress(1, dm.scGames[0]);
                           
                         }
-                        else if (scoreValue > 99)
+                        else if (scoreValue > prizeGoal-1)
                         {
                             gamesWon++;
                             worker.ReportProgress(100, dm.scGames[0]);
@@ -182,7 +183,7 @@ namespace lot
                             moneySpent -= dm.getGameCost();
                             moneyWon += dm.score(fldTarget.Text, dm.scGames[i]);
                             sbgamesPlayed.Append(dm.scGames[i] + "\n");
-                            //every hundred games or 200$ for $1 games update games playe UI -- clear it so Memory dont go out of control
+                            //every hundred games or 200$ for $1 games update games played UI -- clear it so Memory dont go out of control
                             if (Math.Abs(moneySpent) % 200 == 0)
                             {
                                 worker.ReportProgress(2);
@@ -191,14 +192,14 @@ namespace lot
                             scoreValue = dm.score(fldTarget.Text, dm.scGames[i]);
                             //hardest part of the whole thing was to make sure we run through the rest of the drum --- wow may be true at i = 0 
                             //testing only seems to show Case2 or Case1 and Case4 -- 3 and 5 seem valid to me just not common at all 
-                            if (scoreValue > 0 && scoreValue < 100 && wow == false)
+                            if (scoreValue > 0 && scoreValue < prizeGoal && wow == false)
                             {
                                 //mark as 1% complete here dont want to stop till big$$$
                                 gamesWon++;
                                 worker.ReportProgress(1, dm.scGames[i]);
 
                             }
-                            else if (scoreValue > 99 && i < (dm.scGames.Count-1) && wow == false)
+                            else if (scoreValue > (prizeGoal-1) && i < (dm.scGames.Count-1) && wow == false)
                             {
                                 gamesWon++;
                                 worker.ReportProgress(50, dm.scGames[i]);
@@ -206,7 +207,7 @@ namespace lot
                                 //Console.WriteLine("i " + i);
                                 wow = true;
                             }
-                            else if (scoreValue > 99 && i == (dm.scGames.Count-1) && wow == false)
+                            else if (scoreValue > (prizeGoal-1) && i == (dm.scGames.Count-1) && wow == false)
                             {
                                 gamesWon++;
                                 worker.ReportProgress(100, dm.scGames[i]);
@@ -310,6 +311,32 @@ namespace lot
             System.Diagnostics.Process.Start("https://www.njlottery.com/en-us/home.html");
         }
 
-       
+        //go for JACKPOT$$$
+        private void rgTryForJackPotRbYes_CheckedChanged(object sender, EventArgs e)
+        {
+            //set prize goal depending on game checked
+            if (rgGameRbMega.Checked == true || rgGameRbPowerBall.Checked == true)
+            {
+                //100,000,000
+                prizeGoal = 100000000;
+            }
+            else if (rgGameRbCash4Life.Checked == true)
+            {
+                //5,000,000
+                prizeGoal = 5000000;
+            }
+        }
+        //go for 2nd Place$$
+        private void rgTryForJackPotRbNo_CheckedChanged(object sender, EventArgs e)
+        {
+            //set prize goal depending on game checked
+            if (rgGameRbMega.Checked == true || rgGameRbPowerBall.Checked == true || rgGameRbCash4Life.Checked == true)
+            {
+                //1,000,000
+                //prizeGoal = 1000000;
+                //for now setting to 100 for testing
+                prizeGoal = 100;
+            }
+        }
     }
 }

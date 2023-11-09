@@ -60,11 +60,12 @@
             this.btnGetNewTicket = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rgTryForJackPotRbNo = new System.Windows.Forms.RadioButton();
+            this.rgTryForJackPotRbYes = new System.Windows.Forms.RadioButton();
             this.yearsToWinLbl = new System.Windows.Forms.Label();
             this.linkLblToLotterySite = new System.Windows.Forms.LinkLabel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.gbGame.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -244,7 +245,7 @@
             // 
             // cancelTryBig
             // 
-            this.cancelTryBig.Location = new System.Drawing.Point(270, 475);
+            this.cancelTryBig.Location = new System.Drawing.Point(270, 501);
             this.cancelTryBig.Name = "cancelTryBig";
             this.cancelTryBig.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cancelTryBig.Size = new System.Drawing.Size(164, 23);
@@ -262,7 +263,7 @@
             // cancelLbl
             // 
             this.cancelLbl.AutoSize = true;
-            this.cancelLbl.Location = new System.Drawing.Point(271, 501);
+            this.cancelLbl.Location = new System.Drawing.Point(271, 527);
             this.cancelLbl.Name = "cancelLbl";
             this.cancelLbl.Size = new System.Drawing.Size(40, 13);
             this.cancelLbl.TabIndex = 16;
@@ -271,7 +272,7 @@
             // moneySpentLbl
             // 
             this.moneySpentLbl.AutoSize = true;
-            this.moneySpentLbl.Location = new System.Drawing.Point(271, 527);
+            this.moneySpentLbl.Location = new System.Drawing.Point(271, 549);
             this.moneySpentLbl.Name = "moneySpentLbl";
             this.moneySpentLbl.Size = new System.Drawing.Size(70, 13);
             this.moneySpentLbl.TabIndex = 17;
@@ -279,7 +280,7 @@
             // 
             // fldMoneySpent
             // 
-            this.fldMoneySpent.Location = new System.Drawing.Point(270, 543);
+            this.fldMoneySpent.Location = new System.Drawing.Point(270, 565);
             this.fldMoneySpent.Name = "fldMoneySpent";
             this.fldMoneySpent.Size = new System.Drawing.Size(164, 20);
             this.fldMoneySpent.TabIndex = 18;
@@ -287,7 +288,7 @@
             // moneyWonLbl
             // 
             this.moneyWonLbl.AutoSize = true;
-            this.moneyWonLbl.Location = new System.Drawing.Point(271, 566);
+            this.moneyWonLbl.Location = new System.Drawing.Point(271, 588);
             this.moneyWonLbl.Name = "moneyWonLbl";
             this.moneyWonLbl.Size = new System.Drawing.Size(65, 13);
             this.moneyWonLbl.TabIndex = 19;
@@ -295,7 +296,7 @@
             // 
             // fldMoneyWon
             // 
-            this.fldMoneyWon.Location = new System.Drawing.Point(270, 582);
+            this.fldMoneyWon.Location = new System.Drawing.Point(270, 604);
             this.fldMoneyWon.Name = "fldMoneyWon";
             this.fldMoneyWon.Size = new System.Drawing.Size(164, 20);
             this.fldMoneyWon.TabIndex = 20;
@@ -310,7 +311,7 @@
             // netGainLossLbl
             // 
             this.netGainLossLbl.AutoSize = true;
-            this.netGainLossLbl.Location = new System.Drawing.Point(271, 605);
+            this.netGainLossLbl.Location = new System.Drawing.Point(271, 627);
             this.netGainLossLbl.Name = "netGainLossLbl";
             this.netGainLossLbl.Size = new System.Drawing.Size(70, 13);
             this.netGainLossLbl.TabIndex = 23;
@@ -318,7 +319,7 @@
             // 
             // fldNetGainLoss
             // 
-            this.fldNetGainLoss.Location = new System.Drawing.Point(270, 621);
+            this.fldNetGainLoss.Location = new System.Drawing.Point(270, 643);
             this.fldNetGainLoss.Name = "fldNetGainLoss";
             this.fldNetGainLoss.Size = new System.Drawing.Size(164, 20);
             this.fldNetGainLoss.TabIndex = 24;
@@ -343,11 +344,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.rgTryForJackPotRbNo);
+            this.groupBox1.Controls.Add(this.rgTryForJackPotRbYes);
             this.groupBox1.Location = new System.Drawing.Point(270, 392);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(164, 77);
+            this.groupBox1.Size = new System.Drawing.Size(164, 70);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Try For JackPot?";
@@ -361,27 +362,28 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Stops At Match 5";
             // 
-            // radioButton3
+            // rgTryForJackPotRbNo
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(10, 42);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(39, 17);
-            this.radioButton3.TabIndex = 1;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "No";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rgTryForJackPotRbNo.AutoSize = true;
+            this.rgTryForJackPotRbNo.Location = new System.Drawing.Point(10, 42);
+            this.rgTryForJackPotRbNo.Name = "rgTryForJackPotRbNo";
+            this.rgTryForJackPotRbNo.Size = new System.Drawing.Size(39, 17);
+            this.rgTryForJackPotRbNo.TabIndex = 1;
+            this.rgTryForJackPotRbNo.Text = "No";
+            this.rgTryForJackPotRbNo.UseVisualStyleBackColor = true;
+            this.rgTryForJackPotRbNo.CheckedChanged += new System.EventHandler(this.rgTryForJackPotRbNo_CheckedChanged);
             // 
-            // radioButton2
+            // rgTryForJackPotRbYes
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(10, 19);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(43, 17);
-            this.radioButton2.TabIndex = 0;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Yes";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rgTryForJackPotRbYes.AutoSize = true;
+            this.rgTryForJackPotRbYes.Location = new System.Drawing.Point(10, 19);
+            this.rgTryForJackPotRbYes.Name = "rgTryForJackPotRbYes";
+            this.rgTryForJackPotRbYes.Size = new System.Drawing.Size(43, 17);
+            this.rgTryForJackPotRbYes.TabIndex = 0;
+            this.rgTryForJackPotRbYes.TabStop = true;
+            this.rgTryForJackPotRbYes.Text = "Yes";
+            this.rgTryForJackPotRbYes.UseVisualStyleBackColor = true;
+            this.rgTryForJackPotRbYes.CheckedChanged += new System.EventHandler(this.rgTryForJackPotRbYes_CheckedChanged);
             // 
             // yearsToWinLbl
             // 
@@ -411,11 +413,21 @@
             this.richTextBox1.TabIndex = 31;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(258, 465);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(191, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Un-Checked stops at 1st  prize > 1,000";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 745);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.linkLblToLotterySite);
             this.Controls.Add(this.yearsToWinLbl);
@@ -484,14 +496,15 @@
         private System.Windows.Forms.Button btnGetNewTicket;
         private System.Windows.Forms.RadioButton rgGameRbCash4Life;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rgTryForJackPotRbNo;
+        private System.Windows.Forms.RadioButton rgTryForJackPotRbYes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.Label yearsToWinLbl;
         private System.Windows.Forms.LinkLabel linkLblToLotterySite;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label3;
     }
 }
 
