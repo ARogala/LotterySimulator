@@ -26,7 +26,7 @@ namespace lot
         private gameTypes gameType;
         private int gameCost;
 
-        public enum gameTypes { powerball, megamillions, cash4Life, pick6, custom };
+        public enum gameTypes { powerball, megamillions, cash4Life, pick6, cash5, custom };
         //1st constructor -- for use with custom game type
         public C2DrumMachine(int drum1Picks, int drum1NMax, int drum2Picks, int drum2NMax)
         {
@@ -79,6 +79,10 @@ namespace lot
                 case gameTypes.pick6:
                     setMachine(6, 46);
                     gameCost = 2;
+                    break;
+                case gameTypes.cash5:
+                    setMachine(5, 45);
+                    gameCost = 1;
                     break;
             }
         }
@@ -324,6 +328,14 @@ namespace lot
                         case 4: value = 30; break;
                         case 5: value = 1500; break;
                         case 6: value = 2000000; break;
+                    }
+                    break;
+                case gameTypes.cash5:
+                    switch (getMatched(target, game))
+                    {
+                        case 3: value = 15; break;
+                        case 4: value = 500; break;
+                        case 5: value = 100000; break;
                     }
                     break;
             }

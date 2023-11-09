@@ -91,6 +91,7 @@ namespace lot
             dm.setGame(C2DrumMachine.gameTypes.megamillions);
             fldTarget.Text = "19 30 33 48 59 [25]";
             twoDrum = true;
+            cbCoverDrum2.Enabled = true;
         }
 
         private void rgGameRbPowerBall_CheckedChanged(object sender, EventArgs e)
@@ -98,6 +99,7 @@ namespace lot
             dm.setGame(C2DrumMachine.gameTypes.powerball);
             fldTarget.Text = "19 30 33 48 59 [26]";
             twoDrum = true;
+            cbCoverDrum2.Enabled = true;
         }
 
         private void rgGameRbCash4Life_CheckedChanged(object sender, EventArgs e)
@@ -105,6 +107,7 @@ namespace lot
             dm.setGame(C2DrumMachine.gameTypes.cash4Life);
             fldTarget.Text = "19 30 33 48 59 [04]";
             twoDrum = true;
+            cbCoverDrum2.Enabled = true;
         }
 
         private void rgGameRbPick6_CheckedChanged(object sender, EventArgs e)
@@ -112,6 +115,17 @@ namespace lot
             dm.setGame(C2DrumMachine.gameTypes.pick6);
             fldTarget.Text = "09 24 29 30 37 46";
             twoDrum = false;
+            cbCoverDrum2.Checked = false;
+            cbCoverDrum2.Enabled = false;
+        }
+
+        private void rgGameRbCash5_CheckedChanged(object sender, EventArgs e)
+        {
+            dm.setGame(C2DrumMachine.gameTypes.cash5);
+            fldTarget.Text = "05 10 25 31 45";
+            twoDrum = false;
+            cbCoverDrum2.Checked = false;
+            cbCoverDrum2.Enabled = false;
         }
 
         private void btnClrBucks_Click(object sender, EventArgs e)
@@ -340,6 +354,10 @@ namespace lot
             {
                 prizeGoal = 1000000;
             }
+            else if (rgGameRbCash5.Checked == true)
+            {
+                prizeGoal = 100000;
+            }
         }
         //go for 2nd Place$$
         private void rgTryForJackPotRbNo_CheckedChanged(object sender, EventArgs e)
@@ -348,13 +366,15 @@ namespace lot
             if (rgGameRbMega.Checked == true || rgGameRbPowerBall.Checked == true || rgGameRbCash4Life.Checked == true)
             {
                 //1,000,000
-                //prizeGoal = 1000000;
-                //for now setting to 100 for testing
-                prizeGoal = 100;
+                prizeGoal = 1000000;
             }
             else if(rgGameRbPick6.Checked == true)
             {
-                prizeGoal= 1000;
+                prizeGoal = 1000;
+            }
+            else if (rgGameRbCash5.Checked == true)
+            {
+                prizeGoal = 500;
             }
         }
     }

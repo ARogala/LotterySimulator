@@ -66,6 +66,7 @@
             this.linkLblToLotterySite = new System.Windows.Forms.LinkLabel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.gbGame.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -132,6 +133,7 @@
             this.rgGameRbCash5.TabStop = true;
             this.rgGameRbCash5.Text = "NJ Cash 5";
             this.rgGameRbCash5.UseVisualStyleBackColor = true;
+            this.rgGameRbCash5.CheckedChanged += new System.EventHandler(this.rgGameRbCash5_CheckedChanged);
             // 
             // rgGameRbPick6
             // 
@@ -344,12 +346,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.rgTryForJackPotRbNo);
             this.groupBox1.Controls.Add(this.rgTryForJackPotRbYes);
             this.groupBox1.Location = new System.Drawing.Point(270, 392);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(164, 70);
+            this.groupBox1.Size = new System.Drawing.Size(164, 78);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Try For JackPot?";
@@ -417,11 +420,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(258, 465);
+            this.label3.Location = new System.Drawing.Point(258, 473);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(191, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Un-Checked stops at 1st  prize > 1,000";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(55, 57);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Match 4 for Cash 5";
             // 
             // Form1
             // 
@@ -506,6 +518,7 @@
         private System.Windows.Forms.LinkLabel linkLblToLotterySite;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 
