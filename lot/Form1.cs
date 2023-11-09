@@ -96,6 +96,12 @@ namespace lot
             fldTarget.Text = "19 30 33 48 59 [26]";
         }
 
+        private void rgGameRbCash4Life_CheckedChanged(object sender, EventArgs e)
+        {
+            dm.setGame(C2DrumMachine.gameTypes.cash4Life);
+            fldTarget.Text = "19 30 33 48 59 [4]";
+        }
+
         private void btnClrBucks_Click(object sender, EventArgs e)
         {
             moneySpent = 0;
@@ -303,5 +309,7 @@ namespace lot
             // Navigate to a URL.
             System.Diagnostics.Process.Start("https://www.njlottery.com/en-us/home.html");
         }
+
+       
     }
 }

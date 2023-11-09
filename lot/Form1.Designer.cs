@@ -36,7 +36,7 @@
             this.gbGame = new System.Windows.Forms.GroupBox();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rgGameRbCash4Life = new System.Windows.Forms.RadioButton();
             this.rgGameRbPowerBall = new System.Windows.Forms.RadioButton();
             this.rgGameRbMega = new System.Windows.Forms.RadioButton();
             this.btnClrBucks = new System.Windows.Forms.Button();
@@ -111,7 +111,7 @@
             // 
             this.gbGame.Controls.Add(this.radioButton5);
             this.gbGame.Controls.Add(this.radioButton4);
-            this.gbGame.Controls.Add(this.radioButton1);
+            this.gbGame.Controls.Add(this.rgGameRbCash4Life);
             this.gbGame.Controls.Add(this.rgGameRbPowerBall);
             this.gbGame.Controls.Add(this.rgGameRbMega);
             this.gbGame.Location = new System.Drawing.Point(272, 65);
@@ -143,16 +143,17 @@
             this.radioButton4.Text = "NJ Pick 6";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rgGameRbCash4Life
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(11, 65);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(94, 17);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "NJ Cash 4 Life";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rgGameRbCash4Life.AutoSize = true;
+            this.rgGameRbCash4Life.Location = new System.Drawing.Point(11, 65);
+            this.rgGameRbCash4Life.Name = "rgGameRbCash4Life";
+            this.rgGameRbCash4Life.Size = new System.Drawing.Size(94, 17);
+            this.rgGameRbCash4Life.TabIndex = 2;
+            this.rgGameRbCash4Life.TabStop = true;
+            this.rgGameRbCash4Life.Text = "NJ Cash 4 Life";
+            this.rgGameRbCash4Life.UseVisualStyleBackColor = true;
+            this.rgGameRbCash4Life.CheckedChanged += new System.EventHandler(this.rgGameRbCash4Life_CheckedChanged);
             // 
             // rgGameRbPowerBall
             // 
@@ -481,7 +482,7 @@
         private System.Windows.Forms.TextBox fldNetGainLoss;
         private System.Windows.Forms.TextBox fldGamesWon;
         private System.Windows.Forms.Button btnGetNewTicket;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rgGameRbCash4Life;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
