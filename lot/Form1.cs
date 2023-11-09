@@ -16,6 +16,7 @@ namespace lot
         int moneySpent = 0;
         int moneyWon = 0;
         int gamesWon = 0;
+        bool twoDrum = true;
         
         StringBuilder sbgamesPlayed = new StringBuilder();
         
@@ -34,7 +35,7 @@ namespace lot
             if (!cbCoverDrum2.Checked)
             {
                 moneySpent -= dm.getGameCost();
-                rtbGames.AppendText(dm.play() + "\n");
+                rtbGames.AppendText(dm.play(twoDrum) + "\n");
                 moneyWon += dm.score(fldTarget.Text, dm.scGames[0]);
                 fldMoneySpent.Text = $"{moneySpent:n0}";
                 fldMoneyWon.Text = $"{moneyWon:n0}";
@@ -89,18 +90,28 @@ namespace lot
         {
             dm.setGame(C2DrumMachine.gameTypes.megamillions);
             fldTarget.Text = "19 30 33 48 59 [25]";
+            twoDrum = true;
         }
 
         private void rgGameRbPowerBall_CheckedChanged(object sender, EventArgs e)
         {
             dm.setGame(C2DrumMachine.gameTypes.powerball);
             fldTarget.Text = "19 30 33 48 59 [26]";
+            twoDrum = true;
         }
 
         private void rgGameRbCash4Life_CheckedChanged(object sender, EventArgs e)
         {
             dm.setGame(C2DrumMachine.gameTypes.cash4Life);
-            fldTarget.Text = "19 30 33 48 59 [4]";
+            fldTarget.Text = "19 30 33 48 59 [04]";
+            twoDrum = true;
+        }
+
+        private void rgGameRbPick6_CheckedChanged(object sender, EventArgs e)
+        {
+            dm.setGame(C2DrumMachine.gameTypes.pick6);
+            fldTarget.Text = "09 24 29 30 37 46";
+            twoDrum = false;
         }
 
         private void btnClrBucks_Click(object sender, EventArgs e)
@@ -152,7 +163,7 @@ namespace lot
                     if (!cbCoverDrum2.Checked)
                     {
                         moneySpent -= dm.getGameCost();
-                        sbgamesPlayed.Append(dm.play() + "\n");
+                        sbgamesPlayed.Append(dm.play(twoDrum) + "\n");
                         //every hundred games or 200$ for $1 games update games playe UI -- clear it so Memory dont go out of control
                         if (Math.Abs(moneySpent)%200 == 0)
                         {
@@ -299,7 +310,7 @@ namespace lot
 
         private void btnGetNewTicket_Click(object sender, EventArgs e)
         {
-            fldTarget.Text = dm.GenerateNewTicket();
+            fldTarget.Text = dm.GenerateNewTicket(twoDrum);
         }
 
         private void linkLblToLotterySite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -325,6 +336,10 @@ namespace lot
                 //5,000,000
                 prizeGoal = 5000000;
             }
+            else if (rgGameRbPick6.Checked == true)
+            {
+                prizeGoal = 1000000;
+            }
         }
         //go for 2nd Place$$
         private void rgTryForJackPotRbNo_CheckedChanged(object sender, EventArgs e)
@@ -336,6 +351,10 @@ namespace lot
                 //prizeGoal = 1000000;
                 //for now setting to 100 for testing
                 prizeGoal = 100;
+            }
+            else if(rgGameRbPick6.Checked == true)
+            {
+                prizeGoal= 1000;
             }
         }
     }

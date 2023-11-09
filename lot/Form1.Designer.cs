@@ -34,8 +34,8 @@
             this.cbCoverDrum2 = new System.Windows.Forms.CheckBox();
             this.btnClrGames = new System.Windows.Forms.Button();
             this.gbGame = new System.Windows.Forms.GroupBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.rgGameRbCash5 = new System.Windows.Forms.RadioButton();
+            this.rgGameRbPick6 = new System.Windows.Forms.RadioButton();
             this.rgGameRbCash4Life = new System.Windows.Forms.RadioButton();
             this.rgGameRbPowerBall = new System.Windows.Forms.RadioButton();
             this.rgGameRbMega = new System.Windows.Forms.RadioButton();
@@ -110,8 +110,8 @@
             // 
             // gbGame
             // 
-            this.gbGame.Controls.Add(this.radioButton5);
-            this.gbGame.Controls.Add(this.radioButton4);
+            this.gbGame.Controls.Add(this.rgGameRbCash5);
+            this.gbGame.Controls.Add(this.rgGameRbPick6);
             this.gbGame.Controls.Add(this.rgGameRbCash4Life);
             this.gbGame.Controls.Add(this.rgGameRbPowerBall);
             this.gbGame.Controls.Add(this.rgGameRbMega);
@@ -122,27 +122,28 @@
             this.gbGame.TabStop = false;
             this.gbGame.Text = "Game";
             // 
-            // radioButton5
+            // rgGameRbCash5
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(11, 111);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(74, 17);
-            this.radioButton5.TabIndex = 4;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "NJ Cash 5";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rgGameRbCash5.AutoSize = true;
+            this.rgGameRbCash5.Location = new System.Drawing.Point(11, 111);
+            this.rgGameRbCash5.Name = "rgGameRbCash5";
+            this.rgGameRbCash5.Size = new System.Drawing.Size(74, 17);
+            this.rgGameRbCash5.TabIndex = 4;
+            this.rgGameRbCash5.TabStop = true;
+            this.rgGameRbCash5.Text = "NJ Cash 5";
+            this.rgGameRbCash5.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rgGameRbPick6
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(11, 88);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(71, 17);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "NJ Pick 6";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rgGameRbPick6.AutoSize = true;
+            this.rgGameRbPick6.Location = new System.Drawing.Point(11, 88);
+            this.rgGameRbPick6.Name = "rgGameRbPick6";
+            this.rgGameRbPick6.Size = new System.Drawing.Size(71, 17);
+            this.rgGameRbPick6.TabIndex = 3;
+            this.rgGameRbPick6.TabStop = true;
+            this.rgGameRbPick6.Text = "NJ Pick 6";
+            this.rgGameRbPick6.UseVisualStyleBackColor = true;
+            this.rgGameRbPick6.CheckedChanged += new System.EventHandler(this.rgGameRbPick6_CheckedChanged);
             // 
             // rgGameRbCash4Life
             // 
@@ -499,8 +500,8 @@
         private System.Windows.Forms.RadioButton rgTryForJackPotRbNo;
         private System.Windows.Forms.RadioButton rgTryForJackPotRbYes;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton rgGameRbCash5;
+        private System.Windows.Forms.RadioButton rgGameRbPick6;
         private System.Windows.Forms.Label yearsToWinLbl;
         private System.Windows.Forms.LinkLabel linkLblToLotterySite;
         private System.Windows.Forms.RichTextBox richTextBox1;

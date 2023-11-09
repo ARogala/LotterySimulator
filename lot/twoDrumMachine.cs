@@ -18,15 +18,15 @@ namespace lot
         public StringCollection scGames = new StringCollection();
         private int d1NMax;
         private int d1NPicks;
-        private int d2NMax;
-        private int d2NPicks;
+        private int? d2NMax;
+        private int? d2NPicks;
         //If your application requires different random number sequences, invoke this constructor repeatedly with different seed values
         //add some more randomness to this thing -- great i like it
         private Random r = new Random((int)DateTime.Now.Ticks);
         private gameTypes gameType;
         private int gameCost;
 
-        public enum gameTypes { powerball, megamillions, cash4Life, custom };
+        public enum gameTypes { powerball, megamillions, cash4Life, pick6, custom };
         //1st constructor -- for use with custom game type
         public C2DrumMachine(int drum1Picks, int drum1NMax, int drum2Picks, int drum2NMax)
         {
@@ -50,7 +50,7 @@ namespace lot
         }
         //why -1 on number of picks? ok see the loop in play()
         //set vars based on game type 
-        public void setMachine(int drum1Picks, int drum1NMax, int drum2Picks, int drum2NMax)
+        public void setMachine(int drum1Picks, int drum1NMax, int? drum2Picks = null, int? drum2NMax = null)
         {
             this.d1NMax = drum1NMax;
             this.d1NPicks = drum1Picks - 1;
@@ -74,6 +74,10 @@ namespace lot
                     break;
                 case gameTypes.cash4Life:
                     setMachine(5, 60, 1, 4);
+                    gameCost = 2;
+                    break;
+                case gameTypes.pick6:
+                    setMachine(6, 46);
                     gameCost = 2;
                     break;
             }
@@ -172,7 +176,7 @@ namespace lot
         //picks your lucky random numbers adds them to scDrumPicks -- sorts scDrumPicks
         //retruns a string of lucky random numbers
         //adds all lucky nums to scGames
-        public string play()
+        public string play(bool twoDrum)
         {
             //cool oddly i dont remember ever using this class before -- better than concatenation
             StringBuilder sb = new StringBuilder();
@@ -187,22 +191,26 @@ namespace lot
                 sb.Append(scDrum1Picks[i]);
                 sb.Append(" ");
             }
-            //_____drum2__________
-            for (int i = 0; i <= d2NPicks; i++)
-                getN(2);
-            ArrayList.Adapter(scDrum2Picks).Sort();
-            for (int i = 0; i <= d2NPicks; i++)
+
+            if(twoDrum)
             {
-                sb.Append("[");
-                sb.Append(scDrum2Picks[i]);
-                sb.Append("] ");
+                //_____drum2__________
+                for (int i = 0; i <= d2NPicks; i++)
+                    getN(2);
+                ArrayList.Adapter(scDrum2Picks).Sort();
+                for (int i = 0; i <= d2NPicks; i++)
+                {
+                    sb.Append("[");
+                    sb.Append(scDrum2Picks[i]);
+                    sb.Append("] ");
+                }
             }
             //_______game_________
             scGames.Add(sb.ToString());
             return (sb.ToString());
         }
         //same as play except DO NOT add to scGames
-        public string GenerateNewTicket()
+        public string GenerateNewTicket(bool twoDrum)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -216,17 +224,20 @@ namespace lot
                 sb.Append(scDrum1Picks[i]);
                 sb.Append(" ");
             }
-            //_____drum2__________
-            for (int i = 0; i <= d2NPicks; i++)
-                getN(2);
-            ArrayList.Adapter(scDrum2Picks).Sort();
-            for (int i = 0; i <= d2NPicks; i++)
+            if(twoDrum)
             {
-                sb.Append("[");
-                sb.Append(scDrum2Picks[i]);
-                sb.Append("] ");
+                //_____drum2__________
+                for (int i = 0; i <= d2NPicks; i++)
+                    getN(2);
+                ArrayList.Adapter(scDrum2Picks).Sort();
+                for (int i = 0; i <= d2NPicks; i++)
+                {
+                    sb.Append("[");
+                    sb.Append(scDrum2Picks[i]);
+                    sb.Append("] ");
+                }
             }
-           
+            
             return (sb.ToString());
         }
         //target is the numbers on your ticket game is scGames[0] which are the random picked numbers to match
@@ -304,6 +315,15 @@ namespace lot
                         case 14: value = 2500; break;
                         case 5:  value = 1000000; break;
                         case 15: value = 7000000; break;
+                    }
+                    break;
+                case gameTypes.pick6:
+                    switch (getMatched(target, game))
+                    {
+                        case 3: value = 2; break;
+                        case 4: value = 30; break;
+                        case 5: value = 1500; break;
+                        case 6: value = 2000000; break;
                     }
                     break;
             }
