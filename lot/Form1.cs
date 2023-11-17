@@ -12,7 +12,7 @@ namespace lot
     {
         C2DrumMachine dm = new C2DrumMachine(C2DrumMachine.gameTypes.powerball);
         int scoreValue = 0;
-        int prizeGoal = 1000;
+        int prizeGoal = 100;
         int moneySpent = 0;
         int moneyWon = 0;
         int gamesWon = 0;
@@ -88,6 +88,8 @@ namespace lot
 
         private void rgGameRbMega_CheckedChanged(object sender, EventArgs e)
         {
+            //make sure we update the prizeGoal when games change
+            setPrize();
             dm.setGame(C2DrumMachine.gameTypes.megamillions);
             fldTarget.Text = "19 30 33 48 59 [25]";
             twoDrum = true;
@@ -96,6 +98,7 @@ namespace lot
 
         private void rgGameRbPowerBall_CheckedChanged(object sender, EventArgs e)
         {
+            setPrize();
             dm.setGame(C2DrumMachine.gameTypes.powerball);
             fldTarget.Text = "19 30 33 48 59 [26]";
             twoDrum = true;
@@ -104,6 +107,7 @@ namespace lot
 
         private void rgGameRbCash4Life_CheckedChanged(object sender, EventArgs e)
         {
+            setPrize();
             dm.setGame(C2DrumMachine.gameTypes.cash4Life);
             fldTarget.Text = "19 30 33 48 59 [04]";
             twoDrum = true;
@@ -112,6 +116,7 @@ namespace lot
 
         private void rgGameRbPick6_CheckedChanged(object sender, EventArgs e)
         {
+            setPrize();
             dm.setGame(C2DrumMachine.gameTypes.pick6);
             fldTarget.Text = "09 24 29 30 37 46";
             twoDrum = false;
@@ -121,6 +126,7 @@ namespace lot
 
         private void rgGameRbCash5_CheckedChanged(object sender, EventArgs e)
         {
+            setPrize();
             dm.setGame(C2DrumMachine.gameTypes.cash5);
             fldTarget.Text = "05 10 25 31 45";
             twoDrum = false;
@@ -192,7 +198,7 @@ namespace lot
                             worker.ReportProgress(1, dm.scGames[0]);
                           
                         }
-                        else if (scoreValue > prizeGoal-1)
+                        else if (scoreValue > (prizeGoal-1))
                         {
                             gamesWon++;
                             worker.ReportProgress(100, dm.scGames[0]);
@@ -339,43 +345,56 @@ namespace lot
         //go for JACKPOT$$$
         private void rgTryForJackPotRbYes_CheckedChanged(object sender, EventArgs e)
         {
-            //set prize goal depending on game checked
-            if (rgGameRbMega.Checked == true || rgGameRbPowerBall.Checked == true)
-            {
-                //100,000,000
-                prizeGoal = 100000000;
-            }
-            else if (rgGameRbCash4Life.Checked == true)
-            {
-                //5,000,000
-                prizeGoal = 5000000;
-            }
-            else if (rgGameRbPick6.Checked == true)
-            {
-                prizeGoal = 1000000;
-            }
-            else if (rgGameRbCash5.Checked == true)
-            {
-                prizeGoal = 100000;
-            }
+            setPrize();
         }
         //go for 2nd Place$$
         private void rgTryForJackPotRbNo_CheckedChanged(object sender, EventArgs e)
         {
-            //set prize goal depending on game checked
-            if (rgGameRbMega.Checked == true || rgGameRbPowerBall.Checked == true || rgGameRbCash4Life.Checked == true)
+            setPrize();
+        }
+
+        private void setPrize()
+        {
+            if (rgTryForJackPotRbNo.Checked == true)
             {
-                //1,000,000
-                prizeGoal = 1000000;
+                //set prize goal depending on game checked
+                if (rgGameRbMega.Checked == true || rgGameRbPowerBall.Checked == true || rgGameRbCash4Life.Checked == true)
+                {
+                    //1,000,000
+                    prizeGoal = 1000000;
+                }
+                else if (rgGameRbPick6.Checked == true)
+                {
+                    prizeGoal = 1000;
+                }
+                else if (rgGameRbCash5.Checked == true)
+                {
+                    prizeGoal = 500;
+                }
             }
-            else if(rgGameRbPick6.Checked == true)
+            else if (rgTryForJackPotRbYes.Checked == true)
             {
-                prizeGoal = 1000;
+                //set prize goal depending on game checked
+                if (rgGameRbMega.Checked == true || rgGameRbPowerBall.Checked == true)
+                {
+                    //100,000,000
+                    prizeGoal = 100000000;
+                }
+                else if (rgGameRbCash4Life.Checked == true)
+                {
+                    //5,000,000
+                    prizeGoal = 5000000;
+                }
+                else if (rgGameRbPick6.Checked == true)
+                {
+                    prizeGoal = 1000000;
+                }
+                else if (rgGameRbCash5.Checked == true)
+                {
+                    prizeGoal = 100000;
+                }
             }
-            else if (rgGameRbCash5.Checked == true)
-            {
-                prizeGoal = 500;
-            }
+            Console.WriteLine(prizeGoal);
         }
     }
 }
