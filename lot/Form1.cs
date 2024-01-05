@@ -28,6 +28,7 @@ namespace lot
             backgroundWorker1.WorkerSupportsCancellation = true;
         }
 
+        //dont get your hopes up button
         private void btnPlay_Click(object sender, EventArgs e)
         {
             
@@ -36,13 +37,13 @@ namespace lot
             {
                 moneySpent -= dm.getGameCost();
                 rtbGames.AppendText(dm.play(twoDrum) + "\n");
-                moneyWon += dm.score(fldTarget.Text, dm.scGames[0]);
+                scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
+                moneyWon += scoreValue;
                 fldMoneySpent.Text = $"{moneySpent:n0}";
                 fldMoneyWon.Text = $"{moneyWon:n0}";
                 fldNetGainLoss.Text = $"{(moneySpent + moneyWon):n0}";
                 fldGamesPlayed.Text = $"{Math.Abs((moneySpent / dm.getGameCost())):n0}";
                 //display win
-                scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
                 if (scoreValue > 0)
                 {
                     gamesWon++;
@@ -57,12 +58,12 @@ namespace lot
                 {
                     moneySpent -= dm.getGameCost();
                     rtbGames.AppendText(dm.scGames[i] + "\n");
-                    moneyWon += dm.score(fldTarget.Text, dm.scGames[i]);
+                    scoreValue = dm.score(fldTarget.Text, dm.scGames[i]);
+                    moneyWon += scoreValue;
                     fldMoneySpent.Text = $"{moneySpent:n0}";
                     fldMoneyWon.Text = $"{moneyWon:n0}";
                     fldNetGainLoss.Text = $"{(moneySpent + moneyWon):n0}";
                     //display win
-                    scoreValue = dm.score(fldTarget.Text, dm.scGames[i]);
                     if (scoreValue > 0)
                     {
                         gamesWon++;
@@ -184,24 +185,24 @@ namespace lot
                     {
                         moneySpent -= dm.getGameCost();
                         sbgamesPlayed.Append(dm.play(twoDrum) + "\n");
-                        //every hundred games or 200$ for $1 games update games playe UI -- clear it so Memory dont go out of control
+                        //every hundred games or 200$ for $1 games update games played UI -- clear it so Memory dont go out of control
                         if (Math.Abs(moneySpent)%200 == 0)
                         {
                             worker.ReportProgress(2);
                         }
-                        moneyWon += dm.score(fldTarget.Text, dm.scGames[0]);
                         scoreValue = dm.score(fldTarget.Text, dm.scGames[0]);
+                        moneyWon += scoreValue;
                         if (scoreValue > 0 && scoreValue < prizeGoal)
                         {
                             //mark as 1% complete here dont want to stop till big$$$
                             gamesWon++;
-                            worker.ReportProgress(1, dm.scGames[0]);
+                            worker.ReportProgress(1, new Tuple<string, int>(dm.scGames[0], scoreValue));
                           
                         }
                         else if (scoreValue > (prizeGoal-1))
                         {
                             gamesWon++;
-                            worker.ReportProgress(100, dm.scGames[0]);
+                            worker.ReportProgress(100, new Tuple<string, int>(dm.scGames[0], scoreValue));
                             wow = true;
                         }
                     }
@@ -212,7 +213,6 @@ namespace lot
                         {
                             //Console.WriteLine(i);
                             moneySpent -= dm.getGameCost();
-                            moneyWon += dm.score(fldTarget.Text, dm.scGames[i]);
                             sbgamesPlayed.Append(dm.scGames[i] + "\n");
                             //every hundred games or 200$ for $1 games update games played UI -- clear it so Memory dont go out of control
                             if (Math.Abs(moneySpent) % 200 == 0)
@@ -221,19 +221,20 @@ namespace lot
                             }
                             //display win
                             scoreValue = dm.score(fldTarget.Text, dm.scGames[i]);
+                            moneyWon += scoreValue;
                             //hardest part of the whole thing was to make sure we run through the rest of the drum --- wow may be true at i = 0 
                             //testing only seems to show Case2 or Case1 and Case4 -- 3 and 5 seem valid to me just not common at all 
                             if (scoreValue > 0 && scoreValue < prizeGoal && wow == false)
                             {
                                 //mark as 1% complete here dont want to stop till big$$$
                                 gamesWon++;
-                                worker.ReportProgress(1, dm.scGames[i]);
+                                worker.ReportProgress(1, new Tuple<string, int>(dm.scGames[i], scoreValue));
 
                             }
                             else if (scoreValue > (prizeGoal-1) && i < (dm.scGames.Count-1) && wow == false)
                             {
                                 gamesWon++;
-                                worker.ReportProgress(50, dm.scGames[i]);
+                                worker.ReportProgress(50, new Tuple<string, int>(dm.scGames[i], scoreValue));
                                 //Console.WriteLine("Case1");
                                 //Console.WriteLine("i " + i);
                                 wow = true;
@@ -241,7 +242,7 @@ namespace lot
                             else if (scoreValue > (prizeGoal-1) && i == (dm.scGames.Count-1) && wow == false)
                             {
                                 gamesWon++;
-                                worker.ReportProgress(100, dm.scGames[i]);
+                                worker.ReportProgress(100, new Tuple<string, int>(dm.scGames[i], scoreValue));
                                 //Console.WriteLine("Case2");
                                 //Console.WriteLine("i " + i);
                                 wow = true;
@@ -249,14 +250,14 @@ namespace lot
                             else if (wow == true && i < (dm.scGames.Count-1) && scoreValue > 0)
                             {
                                 gamesWon++;
-                                worker.ReportProgress(50, dm.scGames[i]);
+                                worker.ReportProgress(50, new Tuple<string, int>(dm.scGames[i], scoreValue));
                                 //Console.WriteLine("Case3");
                                 //Console.WriteLine("i " + i);
                             }
                             else if (wow == true && i == (dm.scGames.Count - 1) && scoreValue > 0)
                             {
                                 gamesWon++;
-                                worker.ReportProgress(100, dm.scGames[i]);
+                                worker.ReportProgress(100, new Tuple<string, int>(dm.scGames[i], scoreValue));
                                 //Console.WriteLine("Case4");
                                 //Console.WriteLine("i " + i);
                             }
@@ -264,7 +265,7 @@ namespace lot
                             {
                                 //except shouldnt report a winning ticket here
                                 string noWinAt100 = "noWinAt100";
-                                worker.ReportProgress(100, noWinAt100);
+                                worker.ReportProgress(100, new Tuple<string, int>(noWinAt100, scoreValue));
                                 //Console.WriteLine("Case5");
                                 //Console.WriteLine("i " + i);
                             }
@@ -277,11 +278,17 @@ namespace lot
         // This event handler updates the progress.
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-           
 
+            Tuple<string, int> UserState = (Tuple<string, int>)e.UserState;
             if (e.ProgressPercentage == 1 || e.ProgressPercentage == 50)
             {
-                rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
+                //why does this happen? it happens randomly then stops. related to the 2nd thread maybe
+                //only work around i can think of is to pass scoreValue in UserState as a Tuple
+                if (scoreValue == 0) 
+                {
+                    Console.WriteLine(e.UserState +  " twoDrum " + twoDrum);
+                }
+                rtbWon.AppendText(UserState.Item1 + " won " + UserState.Item2.ToString() + "\n");
                 fldMoneySpent.Text = $"{moneySpent:n0}";
                 fldMoneyWon.Text = $"{moneyWon:n0}";
                 fldGamesWon.Text = $"{gamesWon:n0}";
@@ -290,9 +297,9 @@ namespace lot
             {
                 rtbGames.AppendText(sbgamesPlayed.ToString());
                 sbgamesPlayed.Clear();
-                if ((string)e.UserState != "noWinAt100")
+                if (UserState.Item1 != "noWinAt100")
                 {
-                    rtbWon.AppendText(e.UserState + " won " + scoreValue.ToString() + "\n");
+                    rtbWon.AppendText(UserState.Item1 + " won " + UserState.Item2.ToString() + "\n");
                     rtbWon.AppendText("WOW");
                 }
                 fldMoneySpent.Text = $"{moneySpent:n0}";
