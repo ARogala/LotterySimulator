@@ -25,20 +25,30 @@ Simulator Use Notes:
 
 ## Thoughts, Bugs??, and Future ideas/plans
 
-1. This app was a good learning experience. Some interisting aspects were: 
+1. This app was a good learning experience. Some interisting aspects were:
+
 	 -- Adding a 2nd thread to do the calulation so the UI doesn't hang up. See backgroundWorker code in Form1.cs
+
 	 -- Learning from someone else's code base. Always good to see how someone things and codes. 
+
 	 -- Finding some bugs that were left in.
+
 	 -- Adding some basic memory management. Updated UI "Games Played" every so often and cleard the variable holding the string or else memory would go out of control.
+
 	 -- Left a Bug of my own.
 
 2. Bug 
+
 	 -- For some reason the variable scoreValue resets to default 0 when trying to hit a jackpot. It happens reandomly and not sure why? See backgroundWorker1_ProgressChanged method
 
 3. Plans/Ideas
+
    -- Maybe generate a new ticket every so often when trying for a jackpot.
+
    -- May have to exclude the "Games Played" output for jackpot calculations -- this may still take too much memory. Especially if you truly try to go for jackpot.
+
    -- Try leaving this app running and see how long it takes to hit the big jackpot for PowerBall or MegaMillions. Calulated years and or maybe add a timer to see the hours it spent running. Does it crash because "Games Played" output takes too much RAM.
+   
    -- It was just fun the see how crummy your odds are. Good luck it may take 3 life times just to win $50,000!!
 
 
