@@ -359,6 +359,14 @@ namespace lot
         {
             setPrize();
         }
+        private void rgTryForJackPotRb1000_CheckedChanged(object sender, EventArgs e)
+        {
+            setPrize();
+        }
+        private void rgTryForJackPotRb500_CheckedChanged(object sender, EventArgs e)
+        {
+            setPrize();
+        }
 
         private void setPrize()
         {
@@ -401,7 +409,24 @@ namespace lot
                     prizeGoal = 100000;
                 }
             }
+            else if (rgTryForJackPotRb1000.Checked == true)
+            {
+                prizeGoal = 1000;
+            }
+            else if (rgTryForJackPotRb500.Checked == true)
+            {
+                if (rgGameRbPowerBall.Checked == true)
+                {
+                    prizeGoal = 100;
+                }
+                else
+                {
+                    prizeGoal = 500;
+                }
+            }
             Console.WriteLine(prizeGoal);
         }
+
+        
     }
 }
