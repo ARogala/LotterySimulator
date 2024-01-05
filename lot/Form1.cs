@@ -284,10 +284,12 @@ namespace lot
             {
                 //why does this happen? it happens randomly then stops. related to the 2nd thread maybe
                 //only work around i can think of is to pass scoreValue in UserState as a Tuple
+                /*
                 if (scoreValue == 0) 
                 {
                     Console.WriteLine(e.UserState +  " twoDrum " + twoDrum);
                 }
+                */
                 rtbWon.AppendText(UserState.Item1 + " won " + UserState.Item2.ToString() + "\n");
                 fldMoneySpent.Text = $"{moneySpent:n0}";
                 fldMoneyWon.Text = $"{moneyWon:n0}";
@@ -424,7 +426,7 @@ namespace lot
                     prizeGoal = 500;
                 }
             }
-            Console.WriteLine(prizeGoal);
+            //Console.WriteLine(prizeGoal);
         }
 
         
