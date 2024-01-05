@@ -12,7 +12,7 @@ namespace lot
     {
         C2DrumMachine dm = new C2DrumMachine(C2DrumMachine.gameTypes.powerball);
         int scoreValue = 0;
-        int prizeGoal = 100;
+        int prizeGoal = 1000;
         int moneySpent = 0;
         int moneyWon = 0;
         int gamesWon = 0;
