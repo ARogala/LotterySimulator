@@ -59,6 +59,9 @@
             this.fldGamesWon = new System.Windows.Forms.TextBox();
             this.btnGetNewTicket = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.rgTryForJackPotRb500 = new System.Windows.Forms.RadioButton();
+            this.rgTryForJackPotRb1000 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.rgTryForJackPotRbNo = new System.Windows.Forms.RadioButton();
@@ -66,10 +69,6 @@
             this.yearsToWinLbl = new System.Windows.Forms.Label();
             this.linkLblToLotterySite = new System.Windows.Forms.LinkLabel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rgTryForJackPotRb1000 = new System.Windows.Forms.RadioButton();
-            this.rgTryForJackPotRb500 = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
             this.gbGame.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -362,6 +361,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Try For JackPot?";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 116);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "$100 for PowerBall";
+            // 
+            // rgTryForJackPotRb500
+            // 
+            this.rgTryForJackPotRb500.AutoSize = true;
+            this.rgTryForJackPotRb500.Location = new System.Drawing.Point(10, 96);
+            this.rgTryForJackPotRb500.Name = "rgTryForJackPotRb500";
+            this.rgTryForJackPotRb500.Size = new System.Drawing.Size(143, 17);
+            this.rgTryForJackPotRb500.TabIndex = 5;
+            this.rgTryForJackPotRb500.Text = "Stop at 1st prize >= $500";
+            this.rgTryForJackPotRb500.UseVisualStyleBackColor = true;
+            this.rgTryForJackPotRb500.CheckedChanged += new System.EventHandler(this.rgTryForJackPotRb500_CheckedChanged);
+            // 
+            // rgTryForJackPotRb1000
+            // 
+            this.rgTryForJackPotRb1000.AutoSize = true;
+            this.rgTryForJackPotRb1000.Checked = true;
+            this.rgTryForJackPotRb1000.Location = new System.Drawing.Point(10, 73);
+            this.rgTryForJackPotRb1000.Name = "rgTryForJackPotRb1000";
+            this.rgTryForJackPotRb1000.Size = new System.Drawing.Size(152, 17);
+            this.rgTryForJackPotRb1000.TabIndex = 4;
+            this.rgTryForJackPotRb1000.TabStop = true;
+            this.rgTryForJackPotRb1000.Text = "Stop at 1st prize >= $1,000";
+            this.rgTryForJackPotRb1000.UseVisualStyleBackColor = true;
+            this.rgTryForJackPotRb1000.CheckedChanged += new System.EventHandler(this.rgTryForJackPotRb1000_CheckedChanged);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -398,7 +430,6 @@
             this.rgTryForJackPotRbYes.Name = "rgTryForJackPotRbYes";
             this.rgTryForJackPotRbYes.Size = new System.Drawing.Size(43, 17);
             this.rgTryForJackPotRbYes.TabIndex = 0;
-            this.rgTryForJackPotRbYes.TabStop = true;
             this.rgTryForJackPotRbYes.Text = "Yes";
             this.rgTryForJackPotRbYes.UseVisualStyleBackColor = true;
             this.rgTryForJackPotRbYes.CheckedChanged += new System.EventHandler(this.rgTryForJackPotRbYes_CheckedChanged);
@@ -431,54 +462,11 @@
             this.richTextBox1.TabIndex = 31;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(258, 540);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(197, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Un-Checked stops at 1st  prize >= 1,000";
-            // 
-            // rgTryForJackPotRb1000
-            // 
-            this.rgTryForJackPotRb1000.AutoSize = true;
-            this.rgTryForJackPotRb1000.Location = new System.Drawing.Point(10, 73);
-            this.rgTryForJackPotRb1000.Name = "rgTryForJackPotRb1000";
-            this.rgTryForJackPotRb1000.Size = new System.Drawing.Size(152, 17);
-            this.rgTryForJackPotRb1000.TabIndex = 4;
-            this.rgTryForJackPotRb1000.TabStop = true;
-            this.rgTryForJackPotRb1000.Text = "Stop at 1st prize >= $1,000";
-            this.rgTryForJackPotRb1000.UseVisualStyleBackColor = true;
-            this.rgTryForJackPotRb1000.CheckedChanged += new System.EventHandler(this.rgTryForJackPotRb1000_CheckedChanged);
-            // 
-            // rgTryForJackPotRb500
-            // 
-            this.rgTryForJackPotRb500.AutoSize = true;
-            this.rgTryForJackPotRb500.Location = new System.Drawing.Point(10, 96);
-            this.rgTryForJackPotRb500.Name = "rgTryForJackPotRb500";
-            this.rgTryForJackPotRb500.Size = new System.Drawing.Size(143, 17);
-            this.rgTryForJackPotRb500.TabIndex = 5;
-            this.rgTryForJackPotRb500.TabStop = true;
-            this.rgTryForJackPotRb500.Text = "Stop at 1st prize >= $500";
-            this.rgTryForJackPotRb500.UseVisualStyleBackColor = true;
-            this.rgTryForJackPotRb500.CheckedChanged += new System.EventHandler(this.rgTryForJackPotRb500_CheckedChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 116);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "$100 for PowerBall";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 745);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.linkLblToLotterySite);
             this.Controls.Add(this.yearsToWinLbl);
@@ -555,7 +543,6 @@
         private System.Windows.Forms.Label yearsToWinLbl;
         private System.Windows.Forms.LinkLabel linkLblToLotterySite;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RadioButton rgTryForJackPotRb1000;
         private System.Windows.Forms.Label label5;
