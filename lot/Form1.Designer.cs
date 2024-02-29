@@ -495,7 +495,7 @@
             this.Controls.Add(this.rtbGames);
             this.Controls.Add(this.btnPlay);
             this.Name = "Form1";
-            this.Text = "Lottery Simulator 2023 Geek Fest -- Hopes are Futile!! The Collective Is Winning";
+            this.Text = "Lottery Simulator";
             this.gbGame.ResumeLayout(false);
             this.gbGame.PerformLayout();
             this.groupBox1.ResumeLayout(false);

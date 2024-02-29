@@ -6,7 +6,7 @@
 
 Simulator Screen Shot
 
-![Lot Sim](UI_ScreenShot2.png?raw=true "Lottery Simulator")
+![Lot Sim](UI_ScreenShot3.png?raw=true "Lottery Simulator")
 
 Simulator Use Notes:
 
@@ -40,6 +40,8 @@ Simulator Use Notes:
 2. Bug 
 
 	 -- For some reason the variable scoreValue resets to default 0 when trying to hit a jackpot. It happens reandomly and not sure why? See backgroundWorker1_ProgressChanged method in Form1.cs. The output is correct as I worked around the bug by passing the scoreValue directly into UserState. 
+	 -- Bug likely caused by worker thread. Look into lock statement
+	 -- got a bit to learn there still. 
 
 3. Plans/Ideas
 
@@ -48,6 +50,8 @@ Simulator Use Notes:
    -- May have to exclude the "Games Played" output for jackpot calculations -- this may still take too much memory. Especially if you truly try to go for jackpot.
 
    -- Try leaving this app running and see how long it takes to hit the big jackpot for PowerBall or MegaMillions. Calulated years and or maybe add a timer to see the hours it spent running. Does it crash because "Games Played" output takes too much RAM.
+
+   -- port idea to .NET MAUI
 
    -- It was just fun the see how crummy your odds are. Good luck it may take 3 life times just to win $50,000!!
 
