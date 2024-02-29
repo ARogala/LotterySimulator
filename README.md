@@ -40,8 +40,10 @@ Simulator Use Notes:
 2. Bug 
 
 	 -- For some reason the variable scoreValue resets to default 0 when trying to hit a jackpot. It happens reandomly and not sure why? See backgroundWorker1_ProgressChanged method in Form1.cs. The output is correct as I worked around the bug by passing the scoreValue directly into UserState. 
+
 	 -- Bug likely caused by worker thread. Look into lock statement
-	 -- got a bit to learn there still. 
+
+	 -- got a bit to learn there yet. 
 
 3. Plans/Ideas
 
